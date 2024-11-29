@@ -1,0 +1,96 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255 255 255 / 0.04);
+    backdrop-filter: blur(0.1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__content {
+    background-color: var(--new-2);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--s);
+}
+
+.modal__header {
+    padding: var(--xs);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__close {
+    transition: 0.3s;
+}
+
+.modal__close:hover {
+    opacity: 0.6;
+}
+
+.modal__body {
+    padding: var(--xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--xl);
+}
+
+.modal__memberships {
+    display: flex;
+    gap: var(--xs);
+}
+
+.modal__membership button {
+    background-color: var(--new-3);
+    border-radius: var(--m);
+}
+
+.modal__membership button:hover .icon {
+    scale: 1.04;
+    background-color: var(--new-2);
+}
+
+.modal__membership button.active .icon {
+    scale: 1.05;
+    /* background: linear-gradient(to top, var(--new-2), #2c5364, var(--new-3)); */
+    background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+}
+
+.modal__membership .icon {
+    background-color: var(--new-1);
+    width: 6rem;
+    aspect-ratio: 1;
+    border-radius: var(--m);
+    margin-bottom: -0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--xxxs);
+    margin-bottom: 0;
+    font-size: var(--font-xl);
+    transition: 0.3s;
+}
+
+.modal__membership div {
+    text-align: center;
+    font-size: var(--font-s-xs);
+    color: var(--new-2);
+    font-weight: var(--light);
+}
+
+.modal__button {
+    width: 100%;
+}
+
+.modal__form input {
+    border-color:rgba(255 255 255 / 0.04);
+}
+
+.login .modal__button {
+    margin-top: var(--xs);
+}

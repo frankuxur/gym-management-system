@@ -1,0 +1,73 @@
+.memberships {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--m);
+}
+
+.membership-card {
+    background-color: var(--new-2);
+    width: 14rem;
+    padding: var(--xs);
+    padding-bottom: var(--m);
+    border-radius: var(--s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s);
+}
+
+.membership-card header {
+    background-color: var(--new-3);
+    border-radius: var(--m);
+    cursor: default;
+}
+
+.membership-card:hover header .icon {
+    scale: 1.02;
+    background-color: var(--new-2);
+}
+
+.membership-card header .icon {
+    background-color: var(--new-1);
+    height: 8rem;
+    border-radius: var(--m);
+    margin-bottom: -0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--xxxs);
+    margin-bottom: 0;
+    font-size: var(--font-xxl);
+    transition: 0.3s;
+}
+
+.membership-card header div {
+    text-align: center;
+    font-size: var(--font-s-xs);
+    color: var(--new-2);
+    font-weight: var(--light);
+    text-transform: uppercase;
+}
+
+.membership-card h3 {
+    font-size: var(--font-xl);
+    text-align: center;
+    margin-top: auto;
+    border-top: 0.01rem dashed rgba(255 255 255 / 0.1);
+    padding-top: var(--xxs);
+}
+
+.membership-card ul {
+    display: grid;
+    gap: var(--xxs);
+}
+
+.membership-card li {
+    font-size: var(--font-s);
+    display: flex;
+    gap: var(--xxxs);
+}
+
+.membership-card li .icon {
+    margin-top: 0.2rem;
+    opacity: 0.6;
+}

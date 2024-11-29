@@ -1,0 +1,48 @@
+.holidays {
+    display: flex;
+    flex-direction: column;
+    gap: var(--l);
+}
+
+.holidays__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--xl);
+    position: relative;
+}
+
+.holidays__list::after {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    height: 120%;
+    width: 0.01rem;
+    background-color: rgba(255 255 255 / 0.06);
+}
+
+.holiday {
+    display: flex;
+    align-items: center;
+    gap: var(--xxs);
+    font-size: var(--font-s);
+}
+
+.holiday .line {
+    flex: 1;
+    height: 0.01rem;
+    border-bottom: 0.01rem solid rgba(255 255 255 / 0.08);
+}
+
+.holiday__text {
+    margin-left: auto;
+}
+
+.holiday span {
+    transform: translateX(-50%);
+}
+
+.holiday__date {
+    opacity: 0.6;
+}

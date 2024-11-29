@@ -1,0 +1,22 @@
+.register__title {
+    display: flex;
+    align-items: center;
+    gap: var(--xxxs);
+}
+
+.form__field .password {
+    position: relative;
+    max-width: fit-content;
+}
+
+.form__field .toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(calc(var(--xs) * -1), -50%);
+    transition: 0.3s;
+}
+
+.form__field .toggle:hover {
+    opacity: 0.6;
+}

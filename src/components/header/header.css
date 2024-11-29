@@ -1,0 +1,123 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__content {
+    width: var(--content-width);
+    padding: var(--xs) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--xxxs);
+    font-size: var(--font-s);
+}
+
+.header__logo {
+    margin-right: auto;
+    user-select: none;
+}
+
+.header__user {
+    position: relative;
+}
+
+.header__user-image {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--new-2);
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.2rem solid transparent;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: var(--font-l);
+}
+
+.header__user-image:hover {
+    border-color: rgba(255 255 255 / 0.1);
+}
+
+.header__user-info {
+    position: absolute;
+    top: 106%;
+    right: 0;    
+    background-color: var(--new-2);
+    border-radius: var(--s);
+    padding: var(--xs);
+    font-size: var(--font-s-xs);
+    border: 0.2rem solid rgba(255 255 255 / 0.1);
+    min-width: 12rem;
+}
+
+.header__user-name {
+    font-weight: var(--bold);
+}
+
+.header__user-email {
+    opacity: 0.4;
+    letter-spacing: 0.02rem;
+}
+
+.header__user-logout {
+    margin-top: var(--s);
+}
+
+.header__user-logout-button {
+    width: 100%;
+    font-size: var(--font-s-xs);
+    padding: var(--xxs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--xxxs);
+}
+
+.header__user-logout-button .icon {
+    color: var(--new-2);
+    font-size: var(--font-s);
+}
+
+.header__button {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: var(--s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.header__button:hover {
+    background-color: rgba(255 255 255 / 0.1);
+}
+
+.nav {
+    position: relative;
+}
+
+.nav__items {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100%);
+    padding: var(--l);
+    z-index: 1;
+    background-color: var(--bg-2);
+    border-radius: var(--xxs);
+    box-shadow: 0 0 0.8rem 0.2rem rgba(0 0 0 / 0.4);
+    border: 0.01rem solid rgba(255 255 255 / 0.3);
+    font-size: var(--font-s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--xs);
+    font-size: var(--font-l);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+}

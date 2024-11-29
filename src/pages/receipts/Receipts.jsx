@@ -9,7 +9,7 @@ import formatDate from '../../utils/formatDate'
 const Receipts = () => {
 
   const { id } = useParams()
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const user = useSelector(state => state.user.user)
   const receipts = useSelector(state => state.user.receipts)
 
@@ -23,9 +23,9 @@ const Receipts = () => {
 
   useEffect(() => {
     if (!member) {
-      navigate('/'); // Redirect to home if the id is invalid
+      navigate('/') // Redirect to home if the id is invalid
     }
-  }, [id, navigate]);
+  }, [id, navigate])
 
   const { loading } = useGetMemberReceipts(id)
 
@@ -73,7 +73,7 @@ const Receipts = () => {
                                 <span>gym & fitness</span>
                             </div>
                                 
-                            <p className='receipt__address'>17, Market, Sarojini Nagar, Delhi</p>
+                            <p className='receipt__address'>20 Cooper Square, New York, NY 10003, USA</p>
                         </footer>                    
                     </article>
                 ))}

@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 .env
+src/firebase/gym-management-system-service-account-key.json

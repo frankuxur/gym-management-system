@@ -26,3 +26,13 @@
 .form__field .toggle:hover {
     opacity: 0.6;
 }
+
+.update input[type='email'] {
+    user-select: none;
+    pointer-events: none;
+}
+
+.update .form__button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}

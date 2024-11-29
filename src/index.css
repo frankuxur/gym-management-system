@@ -162,6 +162,10 @@ a, button {
   -webkit-tap-highlight-color: transparent;
 }
 
+button {
+  user-select: none;
+}
+
 a { 
   text-decoration: none;
 }

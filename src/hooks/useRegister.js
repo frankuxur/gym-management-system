@@ -19,14 +19,14 @@ const useRegister = () => {
         const querySnapshot = await getDocs(q)
 
         if (!querySnapshot.empty) {
-            console.log('User with this email already exists')
+            toast.error('User with this email already exists')
             return
         }
 
         try {
             const newUser = await createUserWithEmailAndPassword(email, password)
             if (!newUser && error) {
-                console.log(error.message)
+                toast.error(error.message)
                 return
             }            
             

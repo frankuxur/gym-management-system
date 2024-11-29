@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import { Toaster } from 'react-hot-toast'
+import Footer from '../../components/footer/Footer'
 
 const RootLayout = () => {
   return (
@@ -14,7 +15,7 @@ const RootLayout = () => {
           </div>
         </main>
 
-        <footer className='footer'>footer</footer>
+        <Footer />
       </div>
 
       <Toaster

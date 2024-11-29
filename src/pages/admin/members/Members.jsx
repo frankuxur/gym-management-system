@@ -70,7 +70,7 @@ const Members = () => {
                             <span className='icon'>₹</span>
                         </Link>
 
-                        <Link to='../update' className="member__button">
+                        <Link to={`../update/${member?.uid}`} className="member__button">
                             <i className="iconoir-edit-pencil icon"></i>
                         </Link>
 
@@ -105,7 +105,7 @@ const Members = () => {
                             <i className="iconoir-plus icon"></i>
                         </button>
 
-                        <Link to='../update' className="member__button">
+                        <Link to={`../update/${member?.uid}`} className="member__button">
                             <i className="iconoir-edit-pencil icon"></i>
                         </Link>
 
@@ -140,7 +140,7 @@ const Members = () => {
                             <i className="iconoir-plus icon"></i>
                         </button>
 
-                        <Link to='../update' className="member__button">
+                        <Link to={`../update/${member?.uid}`} className="member__button">
                             <i className="iconoir-edit-pencil icon"></i>
                         </Link>
 

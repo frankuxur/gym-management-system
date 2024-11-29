@@ -33,9 +33,21 @@ export const membersSlice = createSlice({
                 return member
             })
         },
+        updateMemberName: (state, action) => {
+            const { payload } = action
+            state.members = state.members.map(member => {
+                if (member.uid === payload.uid) {
+                    return {
+                        ...member,
+                        name: payload.name
+                    }
+                }
+                return member
+            })
+        },
         resetMembers: () => initialState,
     }
 })
 
-export const { setMembers, addMember, removeMember, assignMembershipAction, resetMembers } = membersSlice.actions
+export const { setMembers, addMember, removeMember, assignMembershipAction, resetMembers, updateMemberName } = membersSlice.actions
 export default membersSlice.reducer

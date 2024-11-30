@@ -7,7 +7,6 @@ import { setNotificationsAction } from "../redux/userSlice"
 
 const useGetNotifications = () => {
   const [loading, setLoading] = useState(true)
-//   const [receipts, setReceipts] = useState([])
   const { uid } = useSelector(state => state.user.user)
   const dispatch = useDispatch()
 
@@ -31,7 +30,6 @@ const useGetNotifications = () => {
         dispatch(setNotificationsAction(notifications))
         
       } catch (error) {
-        console.log(error.message)
         toast.error(error.message)
       } finally {
         setLoading(false)

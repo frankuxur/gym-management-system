@@ -1,8 +1,6 @@
-import { auth, firestore } from '../firebase/firebase'
+import { firestore } from '../firebase/firebase'
 import { addDoc, arrayUnion, collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore'
 import toast from 'react-hot-toast'
-import { useDispatch } from 'react-redux'
-import { addMember } from '../redux/membersSlice'
 import { useState } from 'react'
 
 const useSendNotification = () => {

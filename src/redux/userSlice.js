@@ -4,6 +4,7 @@ const initialState = {
     user: JSON.parse(localStorage.getItem('user-info')),
     receipts: [],
     notifications: [],
+    holidays: [],
 }
 
 export const userSlice = createSlice({
@@ -22,9 +23,30 @@ export const userSlice = createSlice({
         setNotificationsAction: (state, action) => {
             const { payload } = action
             state.notifications = payload
-        }
+        },
+        addHolidayAction: (state, action) => {
+            const { payload } = action
+            state.holidays.push(payload);
+        },
+        removeHolidayAction: (state, action) => {
+            const { payload } = action
+            state.holidays = state.holidays.filter(({ id }) => id !== payload)
+        },
+        updateHolidayAction: (state, action) => {
+            const { payload } = action
+            state.holidays = state.holidays.map(holiday => {
+                if (holiday.id === payload.id) {
+                    return payload
+                }
+                return holiday
+            })
+        },
+        setHolidaysAction: (state, action) => {
+            const { payload } = action
+            state.holidays = payload
+        },
     }
 })
 
-export const { login, logout, setReceiptsAction, setNotificationsAction } = userSlice.actions
+export const { login, logout, setReceiptsAction, setNotificationsAction, addHolidayAction, removeHolidayAction, updateHolidayAction, setHolidaysAction } = userSlice.actions
 export default userSlice.reducer

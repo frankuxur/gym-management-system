@@ -33,8 +33,7 @@ const Update = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(name.trim().length)
-    // if (name === member?.name) return
+    
     const data = {
         uid: member.uid,
         name: name.trim()

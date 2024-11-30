@@ -78,3 +78,7 @@
 .form__button:focus {
     border-color: rgba(0 0 0 / 0.2);
 }
+
+.form__input[type='date']::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}

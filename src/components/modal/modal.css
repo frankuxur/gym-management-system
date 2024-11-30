@@ -94,3 +94,65 @@
 .login .modal__button {
     margin-top: var(--xs);
 }
+
+
+/* holidays */
+.modal__holidays .form__input[type='date'] {
+    cursor: pointer;
+}
+
+.modal__holidays .form__group {
+    display: flex;
+    gap: var(--xxxs);
+}
+
+.modal__holidays .from .form__input,
+.modal__holidays .to .form__input {
+    width: 10rem;
+}
+
+.modal__holidays .line {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__holidays .line h5 {
+    background-color: var(--new-2);
+    padding-inline: var(--xxs);
+    z-index: 1;
+}
+
+.modal__holidays .line::after,
+.modal__holidays .line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0.01rem;
+    background-color: rgba(255 255 255 / 0.06);
+}
+
+.modal__holidays .form__button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.form__field .date {
+    position: relative;
+    max-width: fit-content;
+}
+
+.form__field .toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(calc(var(--xs) * -1), -50%);
+    transition: 0.3s;
+}
+
+.form__field .toggle:hover {
+    opacity: 0.6;
+}

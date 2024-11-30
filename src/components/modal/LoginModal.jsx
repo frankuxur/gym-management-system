@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useLogin from "../../hooks/useLogin"
-import { useSelector } from "react-redux"
+import Loader from '../loader/Loader'
+import toast from "react-hot-toast"
 
 const LoginModal = () => {
 
@@ -13,6 +14,14 @@ const LoginModal = () => {
     e.preventDefault()
     loginUser({ email, password })
   }
+
+  useEffect(() => {
+    if (error?.message === 'Firebase: Error (auth/invalid-email).') {
+        toast.error('Invalid credentials')
+    } else if (error?.message) {
+        toast.error(error?.message)
+    }
+  }, [error])
 
   return (
     <div className="modal__body">
@@ -60,7 +69,9 @@ const LoginModal = () => {
                     </div>
                 </div>
 
-                <button className="modal__button form__button">confirm</button>
+                <button className="modal__button form__button">
+                    {loading ? <Loader /> : 'confirm'}
+                </button>
             </div>
         </form>
     </div>

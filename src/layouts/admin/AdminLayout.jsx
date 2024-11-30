@@ -36,12 +36,12 @@ const AdminLayout = () => {
         <li className="admin__tab">
           <NavLink to='holidays'>holidays</NavLink>
         </li>
-        {/* <li className="admin__tab">
-          <NavLink to='suppplement'>supplement store</NavLink>
+        <li className="admin__tab">
+          <NavLink to='store'>store</NavLink>
         </li>
         <li className="admin__tab">
-          <NavLink to='diet'>diet details</NavLink>
-        </li> */}
+          <NavLink to='diet'>diet</NavLink>
+        </li>
       </ul>
 
       <div className="admin__action">

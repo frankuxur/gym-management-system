@@ -1,0 +1,134 @@
+.store {
+    display: flex;
+    flex-direction: column;
+    gap: var(--xl);
+}
+
+.store__title {
+    display: flex;
+    align-items: center;
+    gap: var(--xxxs);
+}
+
+.supplements {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: var(--xxxxl) var(--m);
+}
+
+.supplement {
+    font-size: var(--font-s-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--xl);
+}
+
+.supplement__image {
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+}
+
+.supplement__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--xxxs);
+}
+
+.supplement__title {
+    font-weight: var(--semi-bold);
+}
+
+.supplement__text {
+    opacity: 0.6;
+    font-weight: var(--light);
+}
+
+.supplement__view-link {
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.supplement__view-link:hover {
+    filter: brightness(1.4);
+}
+
+
+/* product */
+.product {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--l);
+}
+
+.product__body {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--xxl);
+}
+
+.product__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--xs);
+}
+
+.product__image {
+    width: 16rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--xs);
+}
+
+.product__title {
+    font-size: var(--font-xxl);
+    line-height: 1;
+}
+
+.product__text {
+    font-size: var(--font-s);
+    opacity: 0.7;
+    line-height: 1.6;
+    letter-spacing: 0.02rem;
+    word-spacing: 0.08rem;
+    font-weight: var(--light);
+}
+
+.product__in-stock {
+    font-size: var(--font-s-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.02rem;
+    opacity: 0.9;
+    margin-bottom: var(--l);
+    display: flex;
+    align-items: center;
+    gap: var(--xxxs);
+    width: 100%;
+}
+
+.product__in-stock .line {
+    height: 0.01rem;
+    flex: 1;
+    background-color: rgba(255 255 255 / 0.06);
+}
+
+.product__back-button {
+    min-width: 2rem;
+    height: 2rem;
+    aspect-ratio: 1;
+    border-radius: var(--s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    cursor: pointer;
+    background-color: var(--new-2);
+    /* background-color: rgba(255 255 255 / 0.04); */
+}
+
+.product__back-button:hover {
+    filter: brightness(1.2);
+}

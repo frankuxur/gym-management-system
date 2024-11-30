@@ -19,6 +19,8 @@ import UserNotifications from './pages/user/notifications/Notifications'
 import UserHome from './pages/user/home/Home'
 import Holidays from './pages/holidays/Holidays'
 import RoleBasedRedirect from './helper/RoleBasedRedirect'
+import Store from './pages/store/Store'
+import Product from './pages/store/Product'
 
 const router =  createBrowserRouter(
   createRoutesFromElements(
@@ -35,6 +37,8 @@ const router =  createBrowserRouter(
           <Route path='update/:id' element={<Update />} />
           <Route path='receipts/:id' element={<Receipts />} />
           <Route path='holidays' element={<Holidays />} />
+          <Route path='store' element={<Store />} />
+          <Route path='store/:id' element={<Product />} />
         </Route>
         <Route path='user' element={<UserLayout />}>
           <Route index element={<Navigate to="home" replace />} />

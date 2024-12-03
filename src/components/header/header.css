@@ -2,6 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(36, 36, 36, 0.264);
+    backdrop-filter: blur(0.6rem);
+    box-shadow: 0 0 1rem 0.1rem rgba(28, 28, 28, 0.173);
+    border-bottom: 0.01rem solid rgba(0 0 0 / 0.08);
+    z-index: 1;
 }
 
 .header__content {
@@ -120,4 +129,13 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.2s;
+}
+
+
+
+/* media query */
+@media (max-width: 1080px) {
+    .header__content {
+        padding-inline: var(--xs);
+    }
 }

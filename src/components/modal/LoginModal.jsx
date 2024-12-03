@@ -9,6 +9,7 @@ const LoginModal = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -16,12 +17,18 @@ const LoginModal = () => {
   }
 
   useEffect(() => {
-    if (error?.message === 'Firebase: Error (auth/invalid-email).') {
+    if (['Firebase: Error (auth/invalid-email).', 'Firebase: Error (auth/invalid-credential).'].includes(error?.message)) {
         toast.error('Invalid credentials')
     } else if (error?.message) {
         toast.error(error?.message)
     }
   }, [error])
+
+  const handleSetPassword = (e) => {
+    setPassword(e.target.value.trim())
+  }
+    
+  const disable = !email.trim() || !password.trim()
 
   return (
     <div className="modal__body">
@@ -50,26 +57,24 @@ const LoginModal = () => {
                     
                     <div className="password">
                         <input 
-                            type="password"
+                            type={showPassword ? 'text' : 'password'}
                             className="form__input" 
                             name='password'
                             value={password}
-                            onChange={e => setPassword(e.target.value)}
+                            onChange={handleSetPassword}
                         />
 
-                        <button className='toggle'>
-                            <i className="iconoir-eye icon"></i>
-                            {/* <i className="iconoir-eye-closed icon"></i> */}
+                        <button onClick={() => setShowPassword(!showPassword)} className='toggle' type='button'>
+                            <i className={`iconoir-eye${showPassword ? '' : '-closed'} icon`}></i>
                         </button>
                     </div>
 
                     <div className="form__error-message">
-                        {/* <ErrorMessage name='password' component='span' /> */}
-                        <span></span>
+                        password must be at least 6 characters long
                     </div>
                 </div>
 
-                <button className="modal__button form__button">
+                <button disabled={disable} className="modal__button form__button">
                     {loading ? <Loader /> : 'confirm'}
                 </button>
             </div>

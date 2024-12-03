@@ -27,6 +27,8 @@ const useGetNotifications = () => {
           })
         })
 
+        notifications.sort((a, b) => b.createdAt - a.createdAt)
+
         dispatch(setNotificationsAction(notifications))
         
       } catch (error) {

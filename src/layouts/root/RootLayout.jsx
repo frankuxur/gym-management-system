@@ -22,7 +22,12 @@ const RootLayout = () => {
         position="bottom-right"
         reverseOrder={false}
         toastOptions={{
-          duration: 4000
+          duration: 4000,
+          style: {
+            borderRadius: 'var(--s)',
+            background: 'var(--new-3)',
+            color: 'var(--new-2)',
+          }
         }}
       />
     </div>

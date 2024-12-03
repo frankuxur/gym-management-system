@@ -51,8 +51,7 @@ const Home = () => {
                 </>    
             ) : (
                 <h3 className='empty'>
-                    <i className="iconoir-warning-triangle"></i>
-                    <span>reach out to the owner for membership subscription</span>    
+                    <span><i className="iconoir-warning-triangle"></i> reach out to the owner for membership subscription</span>    
                 </h3>
             )}
         </div>

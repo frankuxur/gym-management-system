@@ -20,3 +20,8 @@
 .form__field .toggle:hover {
     opacity: 0.6;
 }
+
+.register .form__button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}

@@ -5,10 +5,10 @@
 
 .loader {
     justify-self: center;
-    width: var(--font-m);
+    width: calc(var(--font-l) * 1.05);
     padding: 0.2rem;
     aspect-ratio: 1;
-    border-radius: 50%;
+    border-radius: 520%;
     background-color: var(--new-1);
     --_m: 
       conic-gradient(#0000 10%,#000),

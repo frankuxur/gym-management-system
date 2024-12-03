@@ -40,7 +40,7 @@ const AdminLayout = () => {
           <NavLink to='store'>store</NavLink>
         </li>
         <li className="admin__tab">
-          <NavLink to='diet'>diet</NavLink>
+          <NavLink to='diets'>diets</NavLink>
         </li>
       </ul>
 

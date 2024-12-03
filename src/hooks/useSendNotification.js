@@ -1,16 +1,20 @@
 import { firestore } from '../firebase/firebase'
-import { addDoc, arrayUnion, collection, doc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore'
+import { addDoc, arrayUnion, collection, doc, updateDoc } from 'firebase/firestore'
 import toast from 'react-hot-toast'
 import { useState } from 'react'
 
 const useSendNotification = () => {
-    // const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
 
     const sendNotification = async (data) => {
+        const { title, text, uid } = data
+        if (!title.trim() || !text.trim()) {
+            toast.error('Fill all fields')
+            return
+        }
+
         if (loading) return
 
-        const { title, text, uid } = data
         setLoading(true)
 
         try {
@@ -31,8 +35,7 @@ const useSendNotification = () => {
 
             toast.success('Notification sent successfully')                
         } catch (error) {
-            console.log(error.message)
-            toast.error(error.message)
+            toast.error(error.message, { icon: '⚠️' })
         } finally {
             setLoading(false)
         }

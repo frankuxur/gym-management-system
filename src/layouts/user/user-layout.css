@@ -19,6 +19,10 @@
     gap: var(--xxs);
 }
 
+.user__tab {
+    display: flex;
+}
+
 .user__tab a {
     background-color: var(--new-2);
     padding: var(--xs);

@@ -31,8 +31,3 @@
     user-select: none;
     pointer-events: none;
 }
-
-.update .form__button:disabled {
-    opacity: 0.2;
-    pointer-events: none;
-}

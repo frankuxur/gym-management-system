@@ -71,3 +71,23 @@
     margin-top: 0.2rem;
     opacity: 0.6;
 }
+
+
+
+/* media query */
+@media (max-width: 480px) {
+
+    .memberships {
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 320px) {
+
+    .membership-card {
+        width: 100%;
+    }
+
+}

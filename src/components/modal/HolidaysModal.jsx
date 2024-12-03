@@ -70,15 +70,22 @@ const HolidaysModal = ({ setShowModal, holidayInfo }) => {
     addHoliday(data, setShowModal)
   }
 
+  // set input fields with the holiday to be updated     
   useEffect(() => {
-    const { from, reason, to, date, id } = holidayInfo || {}
+    const { from, reason, to, date } = holidayInfo || {}
     reason && setReason(reason)
     date && setDate(convertToDateInputFormat(date))
     from && setFrom(convertToDateInputFormat(from))
     to && setTo(convertToDateInputFormat(to))
   }, [holidayInfo])
 
-  const disable = !((date && !(from && to)) || (!date && (from && to))) || !reason.trim()
+  // disable button if all appropriate fields are not filled
+  const disable1 = (!((date && !(from && to)) || (!date && (from && to))) || !reason.trim())
+  // disable button if the holiday to be updated is not edited in the form   
+  const disable2 = holidayInfo ? (!(holidayInfo.date && (convertToDateInputFormat(holidayInfo.date) !== date)) && !(holidayInfo.from && (convertToDateInputFormat(holidayInfo.from) !== from)) && !(holidayInfo.to && (convertToDateInputFormat(holidayInfo.to) !== to)) && !(holidayInfo.reason && ((holidayInfo.reason) !== reason.trim()))) : false
+  const disable = disable1 || disable2
+
+  
 
   return (
     <>

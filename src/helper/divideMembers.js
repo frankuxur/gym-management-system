@@ -16,6 +16,8 @@ const divideMembers = (members) => {
         } 
     })
 
+    activeMembers.sort((a, b) => a.expiryDate - b.expiryDate)
+
     return { activeMembers, inactiveMembers, closingMembers }
 }
 

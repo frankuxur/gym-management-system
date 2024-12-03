@@ -132,3 +132,15 @@
 .product__back-button:hover {
     filter: brightness(1.2);
 }
+
+
+
+/* media query */
+@media (max-width: 640px) {
+    
+    .product,
+    .product__body {
+        flex-direction: column;
+    }
+
+}

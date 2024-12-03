@@ -4,11 +4,13 @@ import toast from "react-hot-toast"
 import { useDispatch, useSelector } from "react-redux"
 import { firestore } from "../firebase/firebase"
 import { updateMemberName } from "../redux/membersSlice"
+import { useNavigate } from "react-router-dom"
 
 const useUpdateUserInfo = () => {
     const [loading, setLoading] = useState(false)
     const role = useSelector(state => state.user.user.role)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const updateUserInfo = async (data) => {
         if (role !== 'admin') return
@@ -26,9 +28,9 @@ const useUpdateUserInfo = () => {
 
             dispatch(updateMemberName({ uid, name }))
             toast.success('Name updated successfully')
+            navigate('../members')
         } catch (error) {
-            console.log(error.message)
-            toast.error(error.message)
+            toast(error.message, { icon: '⚠️' })
         } finally {
             setLoading(false)
         }

@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .modal__content {
@@ -135,11 +136,6 @@
     background-color: rgba(255 255 255 / 0.06);
 }
 
-.modal__holidays .form__button:disabled {
-    opacity: 0.2;
-    pointer-events: none;
-}
-
 .form__field .date {
     position: relative;
     max-width: fit-content;
@@ -155,4 +151,46 @@
 
 .form__field .toggle:hover {
     opacity: 0.6;
+}
+
+
+
+/* media query */
+@media (max-width: 480px) {
+
+    .modal {
+        padding: var(--xxs);
+    }
+
+    .modal__content {
+        width: 100%;
+    }
+    
+    .form__field .date {
+        min-width: 100%;
+    }
+
+    .modal__holidays .from ,
+    .modal__holidays .to  {
+        min-width: 50%;
+    }
+
+    .modal__holidays .from .form__input,
+    .modal__holidays .to .form__input {
+        width: 100%;
+    }
+
+
+    /* memberships */
+    .modal__membership {
+        flex: 1;
+    }
+    
+    .modal__membership button {
+        width: 100%;
+    }
+    
+    .modal__membership .icon {
+        width: 92%;
+    }
 }

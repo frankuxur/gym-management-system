@@ -80,7 +80,24 @@
 
 .user-home .empty {
     color: var(--warning-1);
-    display: flex;
-    align-items: center;
-    gap: var(--xxxs);
+}
+
+.user-home .empty i {
+    margin-bottom: -0.1rem;
+}
+
+
+
+/* media query */
+@media (max-width: 320px) {
+
+    .user-home__header,
+    .user-home__body {
+        flex-direction: column;
+    }
+
+    .user-home__date div {
+        text-align: left;
+    }
+
 }

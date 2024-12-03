@@ -15,7 +15,10 @@ export const userSlice = createSlice({
             const { payload } = action
             state.user = payload
         },
-        logout: () => initialState,
+        logout: () => ({
+            ...initialState,
+            user: null,
+        }),
         setReceiptsAction: (state, action) => {
             const { payload } = action
             state.receipts = payload

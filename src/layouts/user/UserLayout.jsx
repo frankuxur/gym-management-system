@@ -43,12 +43,12 @@ const UserLayout = () => {
         <li className="user__tab">
           <NavLink to='holidays'>holidays</NavLink>
         </li>
-        {/* <li className="user__tab">
-          <NavLink to='suppplement'>supplement store</NavLink>
+        <li className="admin__tab">
+          <NavLink to='store'>store</NavLink>
         </li>
-        <li className="user__tab">
-          <NavLink to='diet'>diet details</NavLink>
-        </li> */}
+        <li className="admin__tab">
+          <NavLink to='diets'>diets</NavLink>
+        </li>
       </ul>
 
       <div className="user__action">

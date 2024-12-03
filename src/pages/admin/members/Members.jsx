@@ -3,21 +3,22 @@ import './members.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import Modal from '../../../components/modal/Modal'
-import divideMembers from '../../../helper/divideMembers'
 import useDeleteMember from '../../../hooks/useDeleteMember'
 import Loader from '../../../components/loader/Loader'
 import { removeMember } from '../../../redux/membersSlice'
 import formatDate from '../../../utils/formatDate'
 import daysLeft from '../../../utils/daysLeft'
+import formatText from '../../../utils/formatText'
+import useGetFilteredMembers from '../../../hooks/useGetFilteredMembers'
 
 const Members = () => {
 
   const [showModal, setShowModal] = useState(false)
 
   const members = useSelector(state => state.members.members)
-  const { activeMembers, inactiveMembers, closingMembers } = divideMembers(members)
+  const { activeMembers, inactiveMembers, closingMembers, searchQuery, setSearchQuery } = useGetFilteredMembers()
   const [selectedMember, setSelectedMember] = useState({})
-  const { deleteMember, loading } = useDeleteMember()
+  const { deleteMember } = useDeleteMember()
   const dispatch = useDispatch()
 
   const assignMembership = (member) => {
@@ -38,6 +39,8 @@ const Members = () => {
                 type="text" 
                 className="members__input" 
                 placeholder='Search for a member'
+                value={searchQuery}
+                onChange={e => setSearchQuery(formatText(e.target.value))}
             />
         </div>
 
@@ -65,22 +68,24 @@ const Members = () => {
 
                         <div className="line"></div>
 
-                        <Link to={`../receipts/${member?.uid}`} className="member__button">
-                            {/* <i className="iconoir-database-script icon"></i> */}
-                            <span className='icon'>₹</span>
-                        </Link>
+                        <div className='member__buttons'>
+                            <Link to={`../receipts/${member?.uid}`} className="member__button">
+                                {/* <i className="iconoir-database-script icon"></i> */}
+                                <span className='icon'>₹</span>
+                            </Link>
 
-                        <Link to={`../update/${member?.uid}`} className="member__button">
-                            <i className="iconoir-edit-pencil icon"></i>
-                        </Link>
+                            <Link to={`../update/${member?.uid}`} className="member__button">
+                                <i className="iconoir-edit-pencil icon"></i>
+                            </Link>
 
-                        <Link to={`../notifications/${member?.uid}`} className="member__button">
-                            <i className="iconoir-message icon"></i>
-                        </Link>
+                            <Link to={`../notifications/${member?.uid}`} className="member__button">
+                                <i className="iconoir-message icon"></i>
+                            </Link>
 
-                        <button onClick={() => handleDelete(member?.uid)} className="member__button">
-                            <i className="iconoir-trash icon"></i>
-                        </button>
+                            <button onClick={() => handleDelete(member?.uid)} className="member__button">
+                                <i className="iconoir-trash icon"></i>
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
@@ -97,25 +102,27 @@ const Members = () => {
                             <div className="member__email">{member?.email}</div>
                         </div>
 
-                        <Link to={`../receipts/${member?.uid}`} className="member__button">
-                            <span className='icon'>₹</span>
-                        </Link>
+                        <div className='member__buttons'>
+                            <Link to={`../receipts/${member?.uid}`} className="member__button">
+                                <span className='icon'>₹</span>
+                            </Link>
 
-                        <button onClick={() => assignMembership(member)} className="member__button">
-                            <i className="iconoir-plus icon"></i>
-                        </button>
+                            <button onClick={() => assignMembership(member)} className="member__button">
+                                <i className="iconoir-plus icon"></i>
+                            </button>
 
-                        <Link to={`../update/${member?.uid}`} className="member__button">
-                            <i className="iconoir-edit-pencil icon"></i>
-                        </Link>
+                            <Link to={`../update/${member?.uid}`} className="member__button">
+                                <i className="iconoir-edit-pencil icon"></i>
+                            </Link>
 
-                        <Link to={`../notifications/${member?.uid}`} className="member__button">
-                            <i className="iconoir-message icon"></i>
-                        </Link>
+                            <Link to={`../notifications/${member?.uid}`} className="member__button">
+                                <i className="iconoir-message icon"></i>
+                            </Link>
 
-                        <button onClick={() => handleDelete(member?.uid)} className="member__button">
-                            <i className="iconoir-trash icon"></i>
-                        </button>
+                            <button onClick={() => handleDelete(member?.uid)} className="member__button">
+                                <i className="iconoir-trash icon"></i>
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
@@ -132,31 +139,37 @@ const Members = () => {
                             <div className="member__email">{member?.email}</div>
                         </div>
 
-                        <Link to={`../receipts/${member?.uid}`} className="member__button">
-                            <span className='icon'>₹</span>
-                        </Link>
+                        <div className='member__buttons'>
+                            <Link to={`../receipts/${member?.uid}`} className="member__button">
+                                <span className='icon'>₹</span>
+                            </Link>
 
-                        <button onClick={() => assignMembership(member)} className="member__button">
-                            <i className="iconoir-plus icon"></i>
-                        </button>
+                            <button onClick={() => assignMembership(member)} className="member__button">
+                                <i className="iconoir-plus icon"></i>
+                            </button>
 
-                        <Link to={`../update/${member?.uid}`} className="member__button">
-                            <i className="iconoir-edit-pencil icon"></i>
-                        </Link>
+                            <Link to={`../update/${member?.uid}`} className="member__button">
+                                <i className="iconoir-edit-pencil icon"></i>
+                            </Link>
 
-                        <Link to={`../notifications/${member?.uid}`} className="member__button">
-                            <i className="iconoir-message icon"></i>
-                        </Link>
+                            <Link to={`../notifications/${member?.uid}`} className="member__button">
+                                <i className="iconoir-message icon"></i>
+                            </Link>
 
-                        <button onClick={() => handleDelete(member?.uid)} className="member__button">
-                            <i className="iconoir-trash icon"></i>
-                        </button>
+                            <button onClick={() => handleDelete(member?.uid)} className="member__button">
+                                <i className="iconoir-trash icon"></i>
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
         ) : null}
 
         {!members.length && <Loader color='new-3' />}
+
+        {!!members.length && !activeMembers.length && !inactiveMembers.length && !closingMembers.length && (
+          <h2 className='empty'>sorry, we couldn't find who you're looking for</h2>
+        )}
 
         {showModal && <Modal type={'membership'} setShowModal={setShowModal} member={selectedMember} />}
     </div>

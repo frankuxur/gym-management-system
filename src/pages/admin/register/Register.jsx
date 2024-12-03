@@ -2,11 +2,13 @@ import { useState } from 'react'
 import useRegister from '../../../hooks/useRegister'
 import './register.css'
 import Loader from '../../../components/loader/Loader'
+import formatText from '../../../utils/formatText'
 
 const Register = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
 
     const { register, loading, error } = useRegister()
 
@@ -14,6 +16,8 @@ const Register = () => {
         e.preventDefault()
         register({ name, email, password })
     }
+    
+    const disable = !name.trim() || !email.trim() || !password.trim() || (password.length < 6)
 
   return (
     <form onSubmit={handleSubmit} className="register form">
@@ -31,7 +35,7 @@ const Register = () => {
                     className="form__input" 
                     name='name'
                     value={name}
-                    onChange={e => setName(e.target.value)}
+                    onChange={e => setName(formatText(e.target.value))}
                 />
 
                 <div className="form__error-message">
@@ -62,26 +66,25 @@ const Register = () => {
                 
                 <div className="password">
                     <input 
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         className="form__input" 
                         name='password'
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={e => setPassword(formatText(e.target.value))}
                     />
 
-                    <button className='toggle'>
-                        <i className="iconoir-eye icon"></i>
-                        {/* <i className="iconoir-eye-closed icon"></i> */}
+                    <button onClick={() => setShowPassword(!showPassword)} className='toggle' type='button'>
+                        <i className={`iconoir-eye${showPassword ? '' : '-closed'} icon`}></i>
                     </button>
                 </div>
 
                 <div className="form__error-message">
                     {/* <ErrorMessage name='password' component='span' /> */}
-                    <span></span>
+                    password must be at least 6 characters long
                 </div>
             </div>
 
-            <button className='form__button'>
+            <button disabled={disable} className='form__button'>
                 {loading ? <Loader /> : 'create'}
             </button>
         </div>

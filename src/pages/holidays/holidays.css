@@ -80,6 +80,13 @@
     border-color: rgba(255 255 255 / 0.1);
 }
 
+.holiday__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--xxs);
+}
+
 .holiday__button {
     width: 2rem;
     height: 2rem;
@@ -94,4 +101,37 @@
 
 .holiday__button:hover {
     background-color: rgba(255 255 255 / 0.1);
+}
+
+
+
+/* media query */
+@media (max-width: 880px) {
+
+    .holidays__list {
+        gap: var(--xxxl);
+    }
+
+    .holiday {
+        flex-wrap: wrap;
+        row-gap: var(--xxxs);
+        border-bottom: 0.01rem solid rgba(255 255 255 / 0.08);
+        padding-bottom: var(--m);
+    }
+
+    .holiday > .line {
+        display: none;
+    }
+
+    .holiday__text {
+        margin-bottom: var(--s);
+    }
+    
+    .holiday__text,
+    .holiday__buttons {
+        flex: 100%;
+        justify-content: flex-start;
+        margin-left: var(--m);
+    }
+    
 }

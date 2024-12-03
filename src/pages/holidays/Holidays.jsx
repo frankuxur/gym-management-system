@@ -51,7 +51,7 @@ const Holidays = () => {
                                 <p className="holiday__text">{holiday?.reason}</p>
                                 
                                 {role === 'admin' && (
-                                    <>
+                                    <div className='holiday__buttons'>
                                         <button onClick={() => handleUpdate(holiday)} className="holiday__button">
                                             <i className="iconoir-edit-pencil icon"></i>
                                         </button>
@@ -59,7 +59,7 @@ const Holidays = () => {
                                         <button onClick={() => handleDelete(holiday?.id)} className="holiday__button">
                                             {(deletingHoliday && clickedButton === holiday?.id) ? <Loader color={'new-3'} /> : <i className="iconoir-trash icon"></i>}                                    
                                         </button>
-                                    </>
+                                    </div>
                                 )}
                             </li>
                         ))                          
@@ -70,41 +70,6 @@ const Holidays = () => {
         ) : (
             <Loader color={'new-3'} />
         )}
-
-        <ul className="holidays__list">
-            <>
-                {/* <li className="holiday">
-                    <span>•</span>
-                    <div className="holiday__date">26/11</div>
-                    <div className="line"></div>
-                    <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-                </li>
-                <li className="holiday">
-                    <span>•</span>
-                    <div className="holiday__date">26/11</div>
-                    <div className="line"></div>
-                    <p className="">Lorem ipsum dolor sit</p>
-                </li>
-                <li className="holiday">
-                    <span>•</span>
-                    <div className="holiday__date">26/11</div>
-                    <div className="line"></div>
-                    <p className="">Lorem ipsum</p>
-                </li>
-                <li className="holiday">
-                    <span>•</span>
-                    <div className="holiday__date">26/11</div>
-                    <div className="line"></div>
-                    <p className="">Lorem ipsum dolor sit amet</p>
-                </li>
-                <li className="holiday">
-                    <span>•</span>
-                    <div className="holiday__date">26/11</div>
-                    <div className="line"></div>
-                    <p className="">Lorem</p>
-                </li> */}
-            </>
-        </ul>
 
         {role === 'admin' && (
             <button onClick={() => setShowModal(true)} className="holidays__button">

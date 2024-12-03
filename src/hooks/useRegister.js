@@ -5,14 +5,31 @@ import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { addMember } from '../redux/membersSlice'
 import useSendNotification from './useSendNotification'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const useRegister = () => {
-    const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth)
+    const [createUserWithEmailAndPassword, , , error] = useCreateUserWithEmailAndPassword(auth)
     const { sendNotification } = useSendNotification()
-    const dispatch = useDispatch()    
+    const dispatch = useDispatch()   
+    const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
     const register = async (inputs) => {
         const { name, email, password } = inputs
+        if (!name.trim() || !email.trim() || !password.trim()) {
+            toast.error('Fill all fields')
+            return
+        }
+        
+        if (password.trim().length < 6) {
+            toast.error('Password must be at least 6 characters')
+            return
+        }
+
+        if (loading) return
+
+        setLoading(true)
 
         const usersRef = collection(firestore, 'users')
         const q = query(usersRef, where('email', '==', email))
@@ -20,11 +37,13 @@ const useRegister = () => {
 
         if (!querySnapshot.empty) {
             toast.error('User with this email already exists')
+            setLoading(false)
             return
         }
 
         try {
             const newUser = await createUserWithEmailAndPassword(email, password)
+            console.log(newUser)
             if (!newUser && error) {
                 toast.error(error.message)
                 return
@@ -53,11 +72,13 @@ const useRegister = () => {
                     uid: newUser.user.uid
                 }
                 sendNotification(notification)
+                navigate('../members')
 
             }
         } catch (error) {
-            console.log(error.message)
             toast.error(error.message)
+        } finally {
+            setLoading(false)
         }
     }
     

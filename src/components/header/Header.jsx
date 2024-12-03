@@ -16,12 +16,12 @@ const Header = () => {
 
   const handleLogout = async () => {
     await signOut(auth)
+    localStorage.removeItem('user-info')
     dispatch(logout())
     dispatch(resetMembers())
-    localStorage.removeItem('user-info')
     setShowUserInfo(false)
-    toast.success('You are logged out!')
     navigate('/')
+    toast.success('You are logged out')
   }
 
   const user = useSelector(state => state.user.user)

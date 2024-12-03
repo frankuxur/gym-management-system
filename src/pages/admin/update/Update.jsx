@@ -35,8 +35,8 @@ const Update = () => {
     e.preventDefault()
     
     const data = {
-        uid: member.uid,
-        name: name.trim()
+      uid: member.uid,
+      name: name.trim()
     }
     updateUserInfo(data)
   }

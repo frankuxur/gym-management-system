@@ -21,6 +21,8 @@ import Holidays from './pages/holidays/Holidays'
 import RoleBasedRedirect from './helper/RoleBasedRedirect'
 import Store from './pages/store/Store'
 import Product from './pages/store/Product'
+import Diets from './pages/diets/Diets'
+import Diet from './pages/diets/Diet'
 
 const router =  createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +41,9 @@ const router =  createBrowserRouter(
           <Route path='holidays' element={<Holidays />} />
           <Route path='store' element={<Store />} />
           <Route path='store/:id' element={<Product />} />
+          <Route path='diets' element={<Diets />}>
+            <Route path=':id' element={<Diet />} />
+          </Route>
         </Route>
         <Route path='user' element={<UserLayout />}>
           <Route index element={<Navigate to="home" replace />} />
@@ -47,6 +52,11 @@ const router =  createBrowserRouter(
           <Route path='receipts/:id' element={<Receipts />} />
           <Route path='memberships' element={<Memberships />} />
           <Route path='holidays' element={<Holidays />} />
+          <Route path='store' element={<Store />} />
+          <Route path='store/:id' element={<Product />} />
+          <Route path='diets' element={<Diets />}>
+            <Route path=':id' element={<Diet />} />
+          </Route>
         </Route>
       </Route>
     </Route>

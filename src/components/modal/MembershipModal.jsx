@@ -1,14 +1,12 @@
 import { useState } from "react"
 import useAssignMembership from "../../hooks/useAssignMembership"
 import Loader from '../loader/Loader'
-import useSendNotification from "../../hooks/useSendNotification"
 import toast from "react-hot-toast"
 
 const MembershipModal = ({ member, setShowModal }) => {
  
   const [membership, setMembership] = useState('')
   const { assignMembership, loading } = useAssignMembership()
-  const { sendNotification } = useSendNotification()
 
   const handleClick = () => {
     if (!membership) {
@@ -17,12 +15,6 @@ const MembershipModal = ({ member, setShowModal }) => {
     }
 
     assignMembership({ member, membership }, setShowModal)
-    const notification = {
-        title: `${membership} membership subscription`,
-        text: `Kudos for subscribing to our ${membership} membership!`,
-        uid: member?.uid
-    }
-    sendNotification(notification)
   }
 
   const disable = !membership

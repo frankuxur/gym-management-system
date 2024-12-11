@@ -15,6 +15,9 @@ import useGetMembers from '../../../hooks/useGetMembers'
 // gsap
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import ActiveMembers from './ActiveMembers'
+import ClosingMembers from './ClosingMembers'
+import InactiveMembers from './InactiveMembers'
 
 const Members = () => {
 
@@ -73,125 +76,12 @@ const Members = () => {
             />
         </div>
 
-        {activeMembers.length ? (
-            <ul className="members__group active">
-                {activeMembers.map((member) => (
-                    <li key={member?.uid} className="member">
-                        <div className="member__badge"></div>
+        {/* list of members grouped by active, closing & inactive */}
+        <ActiveMembers activeMembers={activeMembers} handleDelete={handleDelete} />
 
-                        <div className="member__name">
-                            <div>{member?.name}</div>
-                            <div className="member__email">{member?.email}</div>
-                        </div>
+        <ClosingMembers closingMembers={closingMembers} handleDelete={handleDelete} />
 
-                        <div className="member__date">
-                            <div className="member__expiry">
-                                <i className="iconoir-calendar icon"></i>
-                                {formatDate(member?.expiryDate)}
-                            </div>
-
-                            <div className="line"></div>
-
-                            <div className="member__days-left">{daysLeft(member?.expiryDate)}</div>
-                        </div>
-
-                        <div className="line"></div>
-
-                        <div className='member__buttons'>
-                            <Link to={`../receipts/${member?.uid}`} className="member__button">
-                                <span className='icon'>₹</span>
-                            </Link>
-
-                            <Link to={`../update/${member?.uid}`} className="member__button">
-                                <i className="iconoir-edit-pencil icon"></i>
-                            </Link>
-
-                            <Link to={`../notifications/${member?.uid}`} className="member__button">
-                                <i className="iconoir-message icon"></i>
-                            </Link>
-
-                            <button onClick={() => handleDelete(member?.uid)} className="member__button">
-                                <i className="iconoir-trash icon"></i>
-                            </button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        ) : null}
-
-        {closingMembers.length ? (
-            <ul className="members__group closing">
-                {closingMembers.map((member) => (
-                    <li key={member?.uid} className="member">
-                        <div className="member__badge"></div>
-
-                        <div className="member__name">
-                            <div>{member?.name}</div>
-                            <div className="member__email">{member?.email}</div>
-                        </div>
-
-                        <div className='member__buttons'>
-                            <Link to={`../receipts/${member?.uid}`} className="member__button">
-                                <span className='icon'>₹</span>
-                            </Link>
-
-                            <button onClick={() => assignMembership(member)} className="member__button">
-                                <i className="iconoir-plus icon"></i>
-                            </button>
-
-                            <Link to={`../update/${member?.uid}`} className="member__button">
-                                <i className="iconoir-edit-pencil icon"></i>
-                            </Link>
-
-                            <Link to={`../notifications/${member?.uid}`} className="member__button">
-                                <i className="iconoir-message icon"></i>
-                            </Link>
-
-                            <button onClick={() => handleDelete(member?.uid)} className="member__button">
-                                <i className="iconoir-trash icon"></i>
-                            </button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        ) : null}
-
-        {inactiveMembers.length ? (
-            <ul className="members__group inactive">
-                {inactiveMembers.map((member) => (
-                    <li key={member?.uid} className="member">
-                        <div className="member__badge"></div>
-
-                        <div className="member__name">
-                            <div>{member?.name}</div>
-                            <div className="member__email">{member?.email}</div>
-                        </div>
-
-                        <div className='member__buttons'>
-                            <Link to={`../receipts/${member?.uid}`} className="member__button">
-                                <span className='icon'>₹</span>
-                            </Link>
-
-                            <button onClick={() => assignMembership(member)} className="member__button">
-                                <i className="iconoir-plus icon"></i>
-                            </button>
-
-                            <Link to={`../update/${member?.uid}`} className="member__button">
-                                <i className="iconoir-edit-pencil icon"></i>
-                            </Link>
-
-                            <Link to={`../notifications/${member?.uid}`} className="member__button">
-                                <i className="iconoir-message icon"></i>
-                            </Link>
-
-                            <button onClick={() => handleDelete(member?.uid)} className="member__button">
-                                <i className="iconoir-trash icon"></i>
-                            </button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        ) : null}
+        <InactiveMembers inactiveMembers={inactiveMembers} assignMembership={assignMembership} handleDelete={handleDelete} />
 
         {loading && <Loader color='new-3' />}
 

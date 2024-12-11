@@ -10,15 +10,14 @@ const useGetFilteredMembers = () => {
     const [closingMembers, setClosingMembers] = useState([])
 
     useEffect(() => {
-        let foo
+        let filteredMembers
         if (searchQuery.trim()) {
-            const filteredMembers = allMembers.filter(({ name }) => name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
-            foo = filteredMembers
+            filteredMembers = allMembers.filter(({ name }) => name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
         } else {
-            foo = allMembers
+            filteredMembers = allMembers
         }
         
-        const { activeMembers: a, inactiveMembers: i, closingMembers: c } = divideMembers(foo)
+        const { activeMembers: a, inactiveMembers: i, closingMembers: c } = divideMembers(filteredMembers)
         setActiveMembers(a)
         setInactiveMembers(i)
         setClosingMembers(c)

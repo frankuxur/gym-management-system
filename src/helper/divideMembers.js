@@ -1,6 +1,6 @@
 const divideMembers = (members) => {
     let activeMembers = [], inactiveMembers = [], closingMembers = []
-    members.filter(member => {
+    members.forEach(member => {
         const msInADay = 24 * 60 * 60 * 1000
         const currentDate = Date.now()
         const expiryDate = member.expiryDate
@@ -17,6 +17,7 @@ const divideMembers = (members) => {
     })
 
     activeMembers.sort((a, b) => a.expiryDate - b.expiryDate)
+    closingMembers.sort((a, b) => a.expiryDate - b.expiryDate)
 
     return { activeMembers, inactiveMembers, closingMembers }
 }

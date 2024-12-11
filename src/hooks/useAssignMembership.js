@@ -4,10 +4,12 @@ import { firestore } from "../firebase/firebase"
 import toast from "react-hot-toast"
 import { useDispatch } from "react-redux"
 import { assignMembershipAction } from "../redux/membersSlice"
+import useSendNotification from "./useSendNotification"
 
 const useAssignMembership = () => {
     const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
+    const { sendNotification } = useSendNotification()
 
     const assignMembership = async (data, setShowModal) => {
         if (loading) return
@@ -40,6 +42,14 @@ const useAssignMembership = () => {
 
             dispatch(assignMembershipAction({ uid, currentMembership: membership, expiryDate: newReceipt.expiryDate }))
             toast.success('Membership assigned successfully!')
+
+            // send notification
+            const notification = {
+                title: `${membership} membership subscription`,
+                text: `Kudos for subscribing to our ${membership} membership!`,
+                uid,
+            }
+            sendNotification(notification)
         } catch (error) {
             toast.error(error.message)
         } finally {

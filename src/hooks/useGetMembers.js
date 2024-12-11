@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { collection, getDocs, query, where } from "firebase/firestore"
+import { collection, doc, getDocs, query, where, writeBatch } from "firebase/firestore"
 import { firestore } from "../firebase/firebase"
 import { useDispatch, useSelector } from "react-redux"
 import { setMembers } from '../redux/membersSlice'
@@ -26,19 +26,39 @@ const useGetMembers = () => {
         const querySnapshot = await getDocs(q)
 
         const members = []
-        querySnapshot.forEach(doc => {
+        const batch = writeBatch(firestore)
+        const currentDate = Date.now()
+
+        querySnapshot.forEach((docSnapshot) => {
+          const memberData = docSnapshot.data()
+
+          // check if expiryDate has passed
+          if (memberData.expiryDate < currentDate) {
+            const memberRef = doc(firestore, "users", docSnapshot.id)
+            // set expiryDate & currentMembership to null for this member
+            batch.update(memberRef, {
+              expiryDate: null,
+              currentMembership: null,
+            })
+            memberData.expiryDate = null
+            memberData.currentMembership = null
+          }
+
           members.push({
-            ...doc.data(),
+            ...memberData,
           })
         })
 
+        // commit batch updates
+        if (!batch._mutations.length === 0) {
+          await batch.commit()
+        }
+
+        // sort members by expiryDate
         members.sort((a, b) => a.expiryDate - b.expiryDate)
-        
-        // check if currentMembership of each member has expired, if yes set it to empty string("")
 
         dispatch(setMembers(members))
       } catch (error) {
-        console.log(error.message)
         toast.error(error.message)
         dispatch(setMembers([]))
       } finally {

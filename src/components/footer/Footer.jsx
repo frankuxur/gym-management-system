@@ -14,17 +14,16 @@ const Footer = () => {
 
             <div className="footer__contact">
                 <div className='footer__contact-title'>Feeling inspired? Let's connect</div>
-                {/* <div className='footer__contact-title'>This is the part where you get in touch and we make amazing things happen!</div> */}
                 
                 <ul className="footer__socials">
                     <li className="footer__social">
-                        <Link className='footer__link'>ashishfrank.com</Link>
+                        <Link to={'https://www.ashishfrank.com'} className='footer__link'>ashishfrank.com</Link>
                     </li>
                     <li className="footer__social">
-                        <Link className='footer__link'>ashishfrank1234@gmail.com</Link>
+                        <Link to={'mailto:ashishfrank1234@gmail.com'} className='footer__link'>ashishfrank1234@gmail.com</Link>
                     </li>
                     <li className="footer__social">
-                        <Link className='footer__link'>+91 797 993 7939</Link>
+                        <Link to={'tel:+91 7979937939'} className='footer__link'>+91 797 993 7939</Link>
                     </li>
                 </ul>
             </div>

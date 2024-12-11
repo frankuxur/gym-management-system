@@ -9,7 +9,7 @@ const useAssignMembership = () => {
     const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
 
-    const assignMembership = async (data) => {
+    const assignMembership = async (data, setShowModal) => {
         if (loading) return
 
         const { member, membership } = data
@@ -27,7 +27,7 @@ const useAssignMembership = () => {
                 createdAt: Date.now(),
                 memberId: uid,
                 membership,
-                expiryDate: Date.now() + (30 * 24 * 60 * 60 * 1000),
+                expiryDate: Date.now() + (30 * 24 * 60 * 60 * 1000), // set expiry date at 30 days from current date
                 amount,
             }
             
@@ -41,10 +41,10 @@ const useAssignMembership = () => {
             dispatch(assignMembershipAction({ uid, currentMembership: membership, expiryDate: newReceipt.expiryDate }))
             toast.success('Membership assigned successfully!')
         } catch (error) {
-            console.log(error.message)
             toast.error(error.message)
         } finally {
             setLoading(false)
+            setShowModal(false)
         }
     }
 

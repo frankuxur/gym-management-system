@@ -16,6 +16,7 @@ const LoginModal = () => {
     loginUser({ email, password })
   }
 
+  // error handling   
   useEffect(() => {
     if (['Firebase: Error (auth/invalid-email).', 'Firebase: Error (auth/invalid-credential).'].includes(error?.message)) {
         toast.error('Invalid credentials')
@@ -23,12 +24,8 @@ const LoginModal = () => {
         toast.error(error?.message)
     }
   }, [error])
-
-  const handleSetPassword = (e) => {
-    setPassword(e.target.value.trim())
-  }
     
-  const disable = !email.trim() || !password.trim()
+  const disable = !email.trim() || !password.trim() || (password.trim().length < 6)
 
   return (
     <div className="modal__body">
@@ -36,32 +33,29 @@ const LoginModal = () => {
             <div className="form__content">
 
                 <div className='form__field'>
-                    <label className="form__label" htmlFor="">Email</label>
+                    <label className="form__label" htmlFor="email">Email</label>
                     
                     <input 
                         type="email"
                         className="form__input" 
+                        id='email'
                         name='email'
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                     />
-
-                    <div className="form__error-message">
-                        {/* <ErrorMessage name='email' component='span' /> */}
-                        <span></span>
-                    </div>
                 </div>
                 
                 <div className='form__field'>
-                    <label className="form__label" htmlFor="">Password</label>
+                    <label className="form__label" htmlFor="password">Password</label>
                     
                     <div className="password">
                         <input 
                             type={showPassword ? 'text' : 'password'}
                             className="form__input" 
+                            id='password'
                             name='password'
                             value={password}
-                            onChange={handleSetPassword}
+                            onChange={e => setPassword(e.target.value.trim())}
                         />
 
                         <button onClick={() => setShowPassword(!showPassword)} className='toggle' type='button'>

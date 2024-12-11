@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './header.css'
 import { logout } from '../../redux/userSlice'
-import { useState } from 'react'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../firebase/firebase'
 import { Link, useNavigate } from 'react-router-dom'
@@ -9,17 +8,16 @@ import toast from 'react-hot-toast'
 import { resetMembers } from '../../redux/membersSlice'
 
 const Header = () => {
-
-  const [showUserInfo, setShowUserInfo] = useState(false)
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  // logout, remove user from redux store & local storage
   const handleLogout = async () => {
     await signOut(auth)
     localStorage.removeItem('user-info')
     dispatch(logout())
     dispatch(resetMembers())
-    setShowUserInfo(false)
     navigate('/')
     toast.success('You are logged out')
   }
@@ -36,10 +34,6 @@ const Header = () => {
             </div>
 
             <nav className="nav">
-              {/* <button className="header__button">
-                <i className="iconoir-menu"></i>
-              </button> */}
-
               <ul className="nav__items">
                 <li className='nav__item'>
                   <a href="" className='nav__link'>contact</a>
@@ -66,10 +60,11 @@ const Header = () => {
                 )}
 
                 <div className="header__user">                
-                  <div className="header__user-image" onClick={() => setShowUserInfo(!showUserInfo)}>
+                  <div className="header__user-image">
                     <h3>{user?.name.split('')[0]}</h3>
                   </div>
-                  {showUserInfo && (
+
+                  <div className="header__user-wrapper">
                     <ul className="header__user-info">
                       <li className='header__user-name'>{user?.name}</li>
                       <li className='header__user-email'>{user?.email}</li>
@@ -83,7 +78,7 @@ const Header = () => {
                         </button>
                         </li>
                     </ul>
-                  )}
+                  </div>
                 </div>
               </>
             )}

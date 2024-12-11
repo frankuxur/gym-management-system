@@ -10,13 +10,14 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
-    const { register, loading, error } = useRegister()
+    const { register, loading } = useRegister()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         register({ name, email, password })
     }
     
+    // disable is true when name, email or password fields are empty, or password's length is less than 6 
     const disable = !name.trim() || !email.trim() || !password.trim() || (password.length < 6)
 
   return (
@@ -28,49 +29,42 @@ const Register = () => {
             </h3>
 
             <div className='form__field'>
-                <label className="form__label" htmlFor="">Name</label>
+                <label className="form__label" htmlFor="name">Name</label>
                 
                 <input 
                     type="text"
                     className="form__input" 
                     name='name'
+                    id='name'
                     value={name}
                     onChange={e => setName(formatText(e.target.value))}
                 />
-
-                <div className="form__error-message">
-                    {/* <ErrorMessage name='name' component='span' /> */}
-                    <span></span>
-                </div>
             </div>
 
             <div className='form__field'>
-                <label className="form__label" htmlFor="">Email</label>
+                <label className="form__label" htmlFor="email">Email</label>
                 
                 <input 
                     type="email"
                     className="form__input" 
                     name='email'
+                    id='email'
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                 />
-
-                <div className="form__error-message">
-                    {/* <ErrorMessage name='email' component='span' /> */}
-                    <span></span>
-                </div>
             </div>
 
             <div className='form__field'>
-                <label className="form__label" htmlFor="">Password</label>
+                <label className="form__label" htmlFor="password">Password</label>
                 
                 <div className="password">
                     <input 
                         type={showPassword ? 'text' : 'password'}
                         className="form__input" 
                         name='password'
+                        id='password'
                         value={password}
-                        onChange={e => setPassword(formatText(e.target.value))}
+                        onChange={e => setPassword(e.target.value.trim())}
                     />
 
                     <button onClick={() => setShowPassword(!showPassword)} className='toggle' type='button'>
@@ -79,7 +73,6 @@ const Register = () => {
                 </div>
 
                 <div className="form__error-message">
-                    {/* <ErrorMessage name='password' component='span' /> */}
                     password must be at least 6 characters long
                 </div>
             </div>

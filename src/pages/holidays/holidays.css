@@ -115,7 +115,6 @@
     .holiday {
         flex-wrap: wrap;
         row-gap: var(--xxxs);
-        border-bottom: 0.01rem solid rgba(255 255 255 / 0.08);
         padding-bottom: var(--m);
     }
 

@@ -13,16 +13,17 @@ const useUpdateUserInfo = () => {
     const navigate = useNavigate()
 
     const updateUserInfo = async (data) => {
+        const { name, uid } = data
+
         if (role !== 'admin') return
+        if (!name.trim()) {
+            toast.error('Name field cannot be empty')
+            return
+        }
 
         setLoading(true)
 
-        try {
-            const {
-                name,
-                uid,
-            } = data
-            
+        try {            
             const userDocRef = doc(firestore, 'users', uid)
             await updateDoc(userDocRef, { name })
 

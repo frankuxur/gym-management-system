@@ -8,6 +8,7 @@ import useSendNotification from './useSendNotification'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+// custom hook to register a new user
 const useRegister = () => {
     const [createUserWithEmailAndPassword, , , error] = useCreateUserWithEmailAndPassword(auth)
     const { sendNotification } = useSendNotification()
@@ -23,7 +24,7 @@ const useRegister = () => {
         }
         
         if (password.trim().length < 6) {
-            toast.error('Password must be at least 6 characters')
+            toast.error('Password must be at least 6 characters long')
             return
         }
 
@@ -31,10 +32,11 @@ const useRegister = () => {
 
         setLoading(true)
 
+        // checking if a user with the same email already exists in the firestore collection "users"
         const usersRef = collection(firestore, 'users')
         const q = query(usersRef, where('email', '==', email))
         const querySnapshot = await getDocs(q)
-
+        // if user the same email exists
         if (!querySnapshot.empty) {
             toast.error('User with this email already exists')
             setLoading(false)
@@ -43,7 +45,6 @@ const useRegister = () => {
 
         try {
             const newUser = await createUserWithEmailAndPassword(email, password)
-            console.log(newUser)
             if (!newUser && error) {
                 toast.error(error.message)
                 return

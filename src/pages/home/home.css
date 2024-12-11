@@ -29,6 +29,7 @@
 .home__title {
     font-size: 7.2rem;
     line-height: 0.8;
+    user-select: none;
 }
 
 .home__subtitle {
@@ -40,6 +41,7 @@
     display: flex;
     align-items: center;
     gap: var(--xxxs);
+    user-select: none;
 }
 
 .home__subtitle .line {
@@ -49,11 +51,9 @@
 }
 
 .home__text-1 {
-    /* font-size: var(--font-s); */
-    /* font-size: var(--font-l); */
     font-size: var(--font-xxl);
     line-height: 1;
-    margin-bottom: var(--xxxs);
+    margin-bottom: var(--s);
     opacity: 0.8;
 }
 
@@ -85,7 +85,8 @@
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center;
-    /* border-radius: var(--xxs); */
+    pointer-events: none;
+    user-select: none;
 }
 
 .feature:nth-of-type(4) .feature__image {

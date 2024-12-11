@@ -1,3 +1,6 @@
+// function that takes an array of objects, each of which represents a holiday in the format: { id: "OjvqbYAJ7KCkThdHzNuR", from: "03 Aug, 24", to: "06 Aug, 24", reason: "A 4 day vacay cause I'm a generous owner" }
+// it categorizes the holidays into separate objects, each of which represents holidays in a year in the format: { year: 2024, holidays: [{}, {}, ...] }. this arrays is sorted by year in descending order but the holidays array is sorted in ascending order
+
 export default function sortAndGroupHolidaysByYear(holidays) {
   // Helper function to parse a date string into a JavaScript Date object
   const parseDate = (date) => {
@@ -33,34 +36,3 @@ export default function sortAndGroupHolidaysByYear(holidays) {
 
   return groupedByYear;
 }
-  
-// Example input
-// const holidays = [
-//   {
-//     id: "OjvqbYAJ7KCkThdHzNuR",
-//     from: "03 Aug, 24",
-//     to: "06 Aug, 24",
-//     reason: "A 4 day vacay cause I'm a generous owner",
-//   },
-//   {
-//     id: "WwqbYAasdhdHzNuR",
-//     date: "01 Jan, 24",
-//     reason: "Independence Day",
-//   },
-//   {
-//     id: "XjvqbYAJ9MCkThdHzNuT",
-//     date: "25 Dec, 23",
-//     reason: "Christmas Celebration",
-//   },
-//   {
-//     id: "YqvqbYAasdhdHzNuQ",
-//     from: "15 Feb, 23",
-//     to: "16 Feb, 23",
-//     reason: "Short winter break",
-//   },
-// ];
-
-// Call the function
-// const groupedHolidays = sortAndGroupHolidaysByYear(holidays);
-// console.log(groupedHolidays);
-  

@@ -1,6 +1,5 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import './admin-layout.css'
-import useGetMembers from '../../hooks/useGetMembers'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
@@ -9,18 +8,17 @@ const AdminLayout = () => {
   const navigate = useNavigate()
   const user = useSelector(state => state.user.user)
 
+  // if a 'member' tries to access an 'admin' only url, they will be redirected to user home page
   useEffect(() => {
     if (user?.role === 'member') {
-      navigate('dashboard')
+      navigate('/')
     }
   }, [user.role, navigate])
 
   // Guard rendering
   if (user?.role !== 'admin') {
-    return null; // Do not render anything until the redirection is complete
+    return null; // do not render anything until the redirection is complete
   }
-  
-  const { loading } = useGetMembers()
 
   return (
     <section className="admin">

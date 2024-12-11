@@ -53,13 +53,11 @@ export const useGetHolidays = () => {
             return
         }
 
-        // if (holidays.length) return
-
         setLoading(true)
   
         try {
-            const holidaysCollectionRef = collection(firestore, 'holidays')
-            const querySnapshot = await getDocs(holidaysCollectionRef)
+            const holidaysCollectionRef = collection(firestore, 'holidays') // reference of the "holidays" collection
+            const querySnapshot = await getDocs(holidaysCollectionRef) // getting all the holiday documents
     
             const holidays = []
             querySnapshot.forEach(doc => {
@@ -69,7 +67,7 @@ export const useGetHolidays = () => {
                 })
             })
     
-            dispatch(setHolidaysAction(holidays))
+            dispatch(setHolidaysAction(holidays)) // storing holidays in redux store
           
         } catch (error) {
           toast.error(error.message)

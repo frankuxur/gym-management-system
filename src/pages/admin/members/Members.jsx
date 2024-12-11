@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './members.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Modal from '../../../components/modal/Modal'
 import useDeleteMember from '../../../hooks/useDeleteMember'
 import Loader from '../../../components/loader/Loader'
@@ -10,26 +10,54 @@ import formatDate from '../../../utils/formatDate'
 import daysLeft from '../../../utils/daysLeft'
 import formatText from '../../../utils/formatText'
 import useGetFilteredMembers from '../../../hooks/useGetFilteredMembers'
+import useGetMembers from '../../../hooks/useGetMembers'
+
+// gsap
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 const Members = () => {
 
   const [showModal, setShowModal] = useState(false)
-
-  const members = useSelector(state => state.members.members)
+  const { loading } = useGetMembers()
   const { activeMembers, inactiveMembers, closingMembers, searchQuery, setSearchQuery } = useGetFilteredMembers()
   const [selectedMember, setSelectedMember] = useState({})
   const { deleteMember } = useDeleteMember()
   const dispatch = useDispatch()
-
+  const inputRef = useRef(null)
+     
+  // open the modal used for membership assignment    
   const assignMembership = (member) => {
     setShowModal(true)
     setSelectedMember(member)
   }
 
+  // delete member from database and state
   const handleDelete = (uid) => {
     deleteMember(uid)
     dispatch(removeMember(uid))
   }
+
+  // focus on input when componenet renders   
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
+
+  // gsap stagger
+  useGSAP(() => {
+    if (activeMembers.length && !loading) {
+        gsap.from('.member', {
+          opacity: 0,
+          x: 4,
+          duration: 0.8,
+          stagger: {
+            amount: 2,
+            from: 'beginning',
+          },
+          ease: 'power2.inOut',
+        })
+    }
+  }, [loading])
 
   return (
     <div className="members">
@@ -41,6 +69,7 @@ const Members = () => {
                 placeholder='Search for a member'
                 value={searchQuery}
                 onChange={e => setSearchQuery(formatText(e.target.value))}
+                ref={inputRef}
             />
         </div>
 
@@ -70,7 +99,6 @@ const Members = () => {
 
                         <div className='member__buttons'>
                             <Link to={`../receipts/${member?.uid}`} className="member__button">
-                                {/* <i className="iconoir-database-script icon"></i> */}
                                 <span className='icon'>₹</span>
                             </Link>
 
@@ -165,9 +193,10 @@ const Members = () => {
             </ul>
         ) : null}
 
-        {!members.length && <Loader color='new-3' />}
+        {loading && <Loader color='new-3' />}
 
-        {!!members.length && !activeMembers.length && !inactiveMembers.length && !closingMembers.length && (
+        {/* render this if there's text in the search query, and there are members, but no members' name match the search query */}
+        {!!searchQuery.trim().length && !loading && !activeMembers.length && !inactiveMembers.length && !closingMembers.length && (
           <h2 className='empty'>sorry, we couldn't find who you're looking for</h2>
         )}
 

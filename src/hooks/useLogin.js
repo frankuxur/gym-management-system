@@ -22,11 +22,13 @@ const useLogin = () => {
 
         try {
             const userCred = await signInWithEmailAndPassword(email, password)
+
+            // if login is successfull
             if (userCred) {
-                const userDocRef = doc(firestore, 'users', userCred.user.uid) 
+                const userDocRef = doc(firestore, 'users', userCred.user.uid) // get reference of user from firestore collection
                 const userDocSnap = await getDoc(userDocRef)
-                localStorage.setItem('user-info', JSON.stringify(userDocSnap.data()))
-                dispatch(login(userDocSnap.data()))
+                localStorage.setItem('user-info', JSON.stringify(userDocSnap.data())) // set user's info in local storage
+                dispatch(login(userDocSnap.data())) // set user's info in redux store
                 toast.success('You are logged in') 
                 navigate('/dashboard')
             }

@@ -6,11 +6,17 @@ import { useSelector } from 'react-redux'
 import sortAndGroupHolidaysByYear from '../../helper/sortAndGroupHolidaysByYear'
 import Loader from '../../components/loader/Loader'
 
+// gsap
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
 const Holidays = () => {
 
+  // useStates  
   const [showModal, setShowModal] = useState(false)
   const [showUpdateModal, setShowUpdateModal] = useState(false)
   const [holidayInfo, setHolidayInfo] = useState({})
+
   const  holidays = useSelector(state => state.user.holidays)
   const newHolidays = sortAndGroupHolidaysByYear(holidays)
   const { loading } = useGetHolidays()
@@ -18,18 +24,42 @@ const Holidays = () => {
   const [clickedButton, setClickedButton] = useState('')
   const role = useSelector(state => state.user.user.role)
 
+  // deletes a holiday
   const handleDelete = (id) => {
     deleteHoliday(id)
     setClickedButton(id)
   }
 
+  // opens modal to update a holiday
   const handleUpdate = (holiday) => {
     setHolidayInfo(holiday)
     setShowUpdateModal(true)
   }
+  
+  // gsap stagger
+  useGSAP(() => {
+    if (newHolidays.length && !loading) {
+        gsap.from('.holiday', {
+            opacity: 0,
+            x: 4,
+            duration: 0.8,
+            stagger: {
+              amount: 2,
+              from: 'beginning',
+            },
+            ease: 'power2.inOut',
+        })
+    }
+  }, [loading])
 
   return (
-    <div className="holidays">        
+    <div className="holidays">   
+        {role === 'admin' && (
+            <button onClick={() => setShowModal(true)} className="holidays__button">
+                <i className="iconoir-plus icon"></i>
+            </button>
+        )}     
+
         {newHolidays.length && !loading ? (
             newHolidays.map(({ year, holidays }) => (
                 <div key={year} className='holidays__group'>
@@ -69,12 +99,6 @@ const Holidays = () => {
             ))
         ) : (
             <Loader color={'new-3'} />
-        )}
-
-        {role === 'admin' && (
-            <button onClick={() => setShowModal(true)} className="holidays__button">
-                <i className="iconoir-plus icon"></i>
-            </button>
         )}
         
         {showModal && <Modal type={'holidays'} setShowModal={setShowModal} />}

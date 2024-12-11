@@ -4,6 +4,7 @@ import formatDate from "../../utils/formatDate"
 import { useAddHoliday, useUpdateHoliday } from "../../hooks/useHolidays"
 import Loader from "../loader/Loader"
 import convertToDateInputFormat from "../../utils/convertToDateInputFormat"
+import toast from "react-hot-toast"
 
 const HolidaysModal = ({ setShowModal, holidayInfo }) => {  
 
@@ -11,9 +12,11 @@ const HolidaysModal = ({ setShowModal, holidayInfo }) => {
   const [date, setDate] = useState('')
   const [to, setTo] = useState('')
   const [from, setFrom] = useState('')
+  // using refs for date inputs so when user clicks anywhere inside the date input the calender pops up
   const dateRef = useRef(null)
   const fromRef = useRef(null)
   const toRef = useRef(null)
+  
   const { addHoliday, loading } = useAddHoliday()
   const { updateHoliday, loading: updatingHoliday } = useUpdateHoliday()
 
@@ -46,7 +49,10 @@ const HolidaysModal = ({ setShowModal, holidayInfo }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (!((date && !(from && to)) || (!date && (from && to))) || !reason.trim()) return
+    if (!((date && !(from && to)) || (!date && (from && to))) || !reason.trim()) {
+        toast('Fill all necessary fields', { icon: '⚠️' })
+        return
+    }
 
     let data
     if (date) {
@@ -86,117 +92,94 @@ const HolidaysModal = ({ setShowModal, holidayInfo }) => {
   const disable = disable1 || disable2
 
   
-
   return (
-    <>
-        <div className="modal__body">
-            <form onSubmit={handleSubmit} className="form modal__form modal__holidays">
-                <div className="form__content">
-                    <div className='form__field'>
-                        <label className="form__label" htmlFor="">Date</label>
+    <div className="modal__body">
+        <form onSubmit={handleSubmit} className="form modal__form modal__holidays">
+            <div className="form__content">
+                <div className='form__field'>
+                    <label className="form__label" htmlFor="">Date</label>
+                    
+                    <div onClick={showDate} className="date">
+                        <input 
+                            type="date"
+                            className="form__input" 
+                            name='date'
+                            value={date}
+                            onChange={handleDate}
+                            ref={dateRef}
+                        />
+
+                        <button type="button" className='toggle'>
+                            <i className="iconoir-calendar icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div className="line">
+                    <h5>or</h5>
+                </div>
+
+                <div className="form__group">
+                    <div className='form__field from'>
+                        <label className="form__label" htmlFor="">From</label>
                         
-                        <div onClick={showDate} className="date">
+                        <div onClick={showFrom} className="date">
                             <input 
                                 type="date"
                                 className="form__input" 
-                                name='date'
-                                value={date}
+                                name='from'
+                                value={from}
                                 onChange={handleDate}
-                                ref={dateRef}
+                                ref={fromRef}
                             />
 
                             <button type="button" className='toggle'>
                                 <i className="iconoir-calendar icon"></i>
                             </button>
                         </div>
-
-                        <div className="form__error-message">
-                            {/* <ErrorMessage name='date' component='span' /> */}
-                            <span></span>
-                        </div>
                     </div>
-
-                    <div className="line">
-                        <h5>or</h5>
-                    </div>
-
-                    <div className="form__group">
-                        <div className='form__field from'>
-                            <label className="form__label" htmlFor="">From</label>
-                            
-                            <div onClick={showFrom} className="date">
-                                <input 
-                                    type="date"
-                                    className="form__input" 
-                                    name='from'
-                                    value={from}
-                                    onChange={handleDate}
-                                    ref={fromRef}
-                                />
-
-                                <button type="button" className='toggle'>
-                                    <i className="iconoir-calendar icon"></i>
-                                </button>
-                            </div>
-
-                            <div className="form__error-message">
-                                {/* <ErrorMessage name='from' component='span' /> */}
-                                <span></span>
-                            </div>
-                        </div>
+                    
+                    <div className='form__field to'>
+                        <label className="form__label" htmlFor="">To</label>
                         
-                        <div className='form__field to'>
-                            <label className="form__label" htmlFor="">To</label>
-                            
-                            <div onClick={showTo} className="date">
-                                <input 
-                                    type="date"
-                                    className="form__input" 
-                                    name='to'
-                                    value={to}
-                                    onChange={handleDate}
-                                    ref={toRef}
-                                />
+                        <div onClick={showTo} className="date">
+                            <input 
+                                type="date"
+                                className="form__input" 
+                                name='to'
+                                value={to}
+                                onChange={handleDate}
+                                ref={toRef}
+                            />
 
-                                <button type="button" className='toggle'>
-                                    <i className="iconoir-calendar icon"></i>
-                                </button>
-                            </div>
-
-                            <div className="form__error-message">
-                                {/* <ErrorMessage name='to' component='span' /> */}
-                                <span></span>
-                            </div>
+                            <button type="button" className='toggle'>
+                                <i className="iconoir-calendar icon"></i>
+                            </button>
                         </div>
                     </div>
-
-                    <div className='form__field'>
-                        <label className="form__label" htmlFor="">Reason</label>
-                        
-                        <input 
-                            type="reason"
-                            className="form__input" 
-                            name='reason'
-                            value={reason}
-                            onChange={e => setReason(formatText(e.target.value))}
-                        />
-
-                        <div className="form__error-message">
-                            {/* <ErrorMessage name='reason' component='span' /> */}
-                            <span></span>
-                        </div>
-                    </div>
-
-                    <button disabled={disable} className="modal__button form__button">
-                        {loading || updatingHoliday ? <Loader /> : (
-                            holidayInfo ? 'update' : 'add'
-                        )}
-                    </button>
                 </div>
-            </form>
 
-        </div>
-    </>
+                <div className='form__field'>
+                    <label className="form__label" htmlFor="">Reason</label>
+                    
+                    <input 
+                        type="reason"
+                        className="form__input" 
+                        name='reason'
+                        value={reason}
+                        onChange={e => setReason(formatText(e.target.value))}
+                    />
+                </div>
+
+                <button disabled={disable} className="modal__button form__button">
+                    {loading || updatingHoliday ? <Loader /> : (
+                        holidayInfo ? 'update' : 'add'
+                    )}
+                </button>
+            </div>
+        </form>
+
+    </div>
   )
 }
 

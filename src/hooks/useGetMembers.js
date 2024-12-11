@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { firestore } from "../firebase/firebase"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { setMembers } from '../redux/membersSlice'
 import toast from "react-hot-toast"
 
 const useGetMembers = () => {
   const [loading, setLoading] = useState(true)
-
   const dispatch = useDispatch() 
+  const members = useSelector(state => state.members.members)
 
   useEffect(() => {
     const getMembers = async () => {
+      // if redux store already has members stored in it, the function will not execute any further
+      if (members.length) {
+        setLoading(false)
+        return
+      }
+
       setLoading(true)
 
       try {

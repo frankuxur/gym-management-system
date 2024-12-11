@@ -38,6 +38,8 @@ const Diets = () => {
                 <span>show list</span>
                 <i className="iconoir-nav-arrow-right icon"></i>
             </button>
+
+            {/* diet details (title & text) */}
             <Outlet />
         </div>
     </div>

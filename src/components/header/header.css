@@ -31,6 +31,18 @@
     position: relative;
 }
 
+.header__user-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 100%;
+    min-width: 12rem;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
 .header__user-image {
     width: 2.4rem;
     height: 2.4rem;
@@ -43,24 +55,32 @@
     align-items: center;
     border: 0.2rem solid transparent;
     transition: 0.2s;
-    cursor: pointer;
+    cursor: default;
     font-size: var(--font-l);
+    position: relative;
+    z-index: 1;
 }
 
+.header__user:has(.header__user-wrapper:hover) .header__user-image,
 .header__user-image:hover {
     border-color: rgba(255 255 255 / 0.1);
 }
 
 .header__user-info {
-    position: absolute;
-    top: 106%;
-    right: 0;    
+    transform: translateY(4%); 
     background-color: var(--new-2);
     border-radius: var(--s);
     padding: var(--xs);
+    margin-top: 0.1rem;
     font-size: var(--font-s-xs);
     border: 0.2rem solid rgba(255 255 255 / 0.1);
     min-width: 12rem;
+}
+
+.header__user:hover .header__user-wrapper {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0); 
 }
 
 .header__user-name {
@@ -106,6 +126,7 @@
     background-color: rgba(255 255 255 / 0.1);
 }
 
+/* nav */
 .nav {
     position: relative;
 }
@@ -135,7 +156,9 @@
 
 /* media query */
 @media (max-width: 1080px) {
+    
     .header__content {
         padding-inline: var(--xs);
     }
+
 }

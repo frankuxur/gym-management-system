@@ -25,13 +25,21 @@
 .receipt {
     background-color: var(--new-2);
     height: 16rem;
-    /* width: 20rem; */
     width: 26rem;
     padding: var(--xs);
     border-radius: var(--s);
     display: flex;
     flex-direction: column;
     gap: var(--m);
+    transition: 0.3s;
+}
+
+.receipt.active {
+    cursor: pointer;
+}
+
+.receipt.active:hover {
+    filter: brightness(1.1);
 }
 
 .receipt__header {
@@ -115,4 +123,20 @@
     display: flex;
     justify-content: center;
     gap: var(--xxxs);
+}
+
+
+
+@media print {
+
+    .receipt {
+        margin: 8rem auto;
+        scale: 1.2;
+    }
+    
+    /* .receipts__list {
+        padding: var(--xs);
+        gap: 1.6rem;
+    } */
+
 }

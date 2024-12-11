@@ -10,15 +10,16 @@ const UserLayout = () => {
   const navigate = useNavigate()
   const user = useSelector(state => state.user.user)
 
+  // if an 'admin' tries to access a 'member' only url, they will be redirected to admin home page
   useEffect(() => {
     if (user.role === 'admin') {
-      navigate('dashboard')
+      navigate('/')
     }
   }, [user.role, navigate])
 
   // Guard rendering
   if (user?.role !== 'member') {
-    return null; // Do not render anything until the redirection is complete
+    return null; // do not render anything until the redirection is complete
   }
 
   const { loading } = useGetNotifications()

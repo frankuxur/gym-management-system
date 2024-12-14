@@ -2,8 +2,6 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import './user-layout.css'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import useGetNotifications from '../../hooks/useGetNotifications'
-// import useGetMemberReceipts from '../../hooks/useGetMemberReceipts'
 
 const UserLayout = () => {
 
@@ -21,8 +19,6 @@ const UserLayout = () => {
   if (user?.role !== 'member') {
     return null; // do not render anything until the redirection is complete
   }
-
-  const { loading } = useGetNotifications()
 
   return (
     <section className="user">

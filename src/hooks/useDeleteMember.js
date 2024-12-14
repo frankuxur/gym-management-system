@@ -2,11 +2,14 @@ import { useState } from "react"
 import { firestore } from "../firebase/firebase"
 import { deleteDoc, doc } from "firebase/firestore"
 import toast from "react-hot-toast"
+import { useDispatch } from "react-redux"
+import { removeMember } from "../redux/membersSlice"
  
 const useDeleteMember = () => {
     const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch()
 
-    const deleteMember = async (uid) => {
+    const deleteMember = async (uid, setShowModal) => {
         if (loading) return 
 
         setLoading(true)
@@ -15,12 +18,14 @@ const useDeleteMember = () => {
             const userDocRef = doc(firestore, 'users', uid)
             await deleteDoc(userDocRef)         
 
+            dispatch(removeMember(uid))
+
             toast.success('Member deleted successfully')
         } catch (error) {
-            console.log(error.message)
             toast.error(error.message)
         } finally {
             setLoading(false)
+            setShowModal(false)
         }
     }
 

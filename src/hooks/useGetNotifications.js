@@ -9,9 +9,17 @@ const useGetNotifications = () => {
   const [loading, setLoading] = useState(true)
   const { uid } = useSelector(state => state.user.user)
   const dispatch = useDispatch()
+  const notifications = useSelector(state => state.user.notifications)
 
   useEffect(() => {
     const getNotifications = async () => {
+
+      // if the redux store already has notifications stored in it, return
+      if (notifications.length) {
+        setLoading(false)
+        return
+      }
+
       setLoading(true)
 
       try {

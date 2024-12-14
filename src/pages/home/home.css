@@ -51,7 +51,7 @@
 }
 
 .home__text-1 {
-    font-size: var(--font-xxl);
+    font-size: var(--font-xl);
     line-height: 1;
     margin-bottom: var(--s);
     opacity: 0.8;
@@ -153,10 +153,6 @@
         font-size: 6rem;
         line-height: 0.8;
     }
-    
-    .home__text-1 {
-        font-size: var(--font-xl);
-    }  
 
 }
 

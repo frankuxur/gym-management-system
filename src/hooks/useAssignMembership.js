@@ -21,8 +21,8 @@ const useAssignMembership = () => {
         try {
             // create receipt
             let amount
-            if (membership === 'core') amount = 3000
-            else if (membership === 'pro') amount = 3800
+            if (membership.toLowerCase() === 'core') amount = 3000
+            else if (membership.toLowerCase() === 'pro') amount = 3800
             else amount = 4000
 
             const newReceipt = {

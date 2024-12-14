@@ -154,6 +154,67 @@
 }
 
 
+/* delete */
+.modal__content:has(.modal__delete-message) {
+    max-width: 18rem;
+}
+
+.modal__delete-message {
+    font-size: var(--font-s);
+    opacity: 0.8;
+}
+
+.modal__user {
+    margin-block: var(--xl);
+    margin-right: var(--xl);
+    align-self: center;
+}
+
+.modal__user h2 {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--new-2);
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.2rem solid rgba(255 255 255 / 0.1);
+    transition: 0.2s;
+    cursor: default;
+    font-size: var(--font-l);
+}
+
+.modal__user-name {
+    opacity: 0.9;
+    line-height: 1.1;
+}
+
+.modal__user-email {
+    font-size: var(--font-s);
+    opacity: 0.4;
+    letter-spacing: 0.02rem;
+    font-weight: var(--light);
+}
+
+.modal__buttons {
+    display: flex;
+    gap: var(--xxxs);
+}
+
+.modal__button.delete {
+    background-color: var(--error);
+}
+
+.modal__user {
+    display: flex;
+    align-items: center;
+    gap: var(--xs);
+}
+
+
+
 
 /* media query */
 @media (max-width: 480px) {

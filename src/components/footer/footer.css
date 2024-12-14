@@ -56,10 +56,6 @@
     gap: var(--m);
 }
 
-.footer__contact-title {
-    
-}
-
 .footer__socials {
     display: flex;
     flex-direction: column;

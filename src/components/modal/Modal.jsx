@@ -14,6 +14,8 @@ const Modal = ({ type, setShowModal, member, holidayInfo }) => {
     title = 'Login'
   } else if (type === 'membership') {
     title = 'Pick a membership'
+  } else if (type === 'delete') {
+    title = 'Are you sure?'
   } else if (type === 'holidays') {
     title = 'Add a holiday'
   } else if (type === 'updateHoliday') {
@@ -50,7 +52,7 @@ const Modal = ({ type, setShowModal, member, holidayInfo }) => {
         </header>
 
         {/* rendering different types of modal based on modal type */}
-        {type === 'delete' && <DeleteModal />}
+        {type === 'delete' && <DeleteModal member={member} setShowModal={setShowModal} />}
         {type === 'membership' && <MembershipModal member={member} setShowModal={setShowModal} />}
         {type === 'login' && <LoginModal />}
         {type === 'holidays' && <HolidaysModal setShowModal={setShowModal} />}

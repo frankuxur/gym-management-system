@@ -1,0 +1,109 @@
+{
+  "name": "Fitcon",
+  "description": "Gym Management System. Your Fitness Journey, Simplified – Where goals meet convenience!",
+  "icons": [
+    {
+      "src": "/favicons/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicons/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicons/favicon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#242424",
+  "background_color": "#E3E3E3",
+  "screenshots": [
+    {
+      "src": "/screenshots/wide-1.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing the home section"
+    },
+    {
+      "src": "/screenshots/wide-2.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing membership details"
+    },
+    {
+      "src": "/screenshots/wide-3.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing notifications"
+    },
+    {
+      "src": "/screenshots/wide-4.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing gym receipts"
+    },
+    {
+      "src": "/screenshots/wide-5.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing annual holiday list"
+    },
+    {
+      "src": "/screenshots/wide-6.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing online store"
+    },
+    {
+      "src": "/screenshots/wide-7.png",
+      "sizes": "1920x912",
+      "form_factor": "wide",
+      "label": "Desktop view showing diet plans"
+    },
+    {
+      "src": "/screenshots/narrow-2.png",
+      "sizes": "402x803",
+      "form_factor": "narrow",
+      "label": "Mobile view showing membership details"
+    },
+    {
+      "src": "/screenshots/narrow-3.png",
+      "sizes": "402x803",
+      "form_factor": "narrow",
+      "label": "Mobile view showing notifications"
+    },
+    {
+      "src": "/screenshots/narrow-4.png",
+      "sizes": "402x803",
+      "form_factor": "narrow",
+      "label": "Mobile view showing gym receipts"
+    },
+    {
+      "src": "/screenshots/narrow-5.png",
+      "sizes": "402x803",
+      "form_factor": "narrow",
+      "label": "Mobile view showing annual holiday list"
+    },
+    {
+      "src": "/screenshots/narrow-6.png",
+      "sizes": "402x803",
+      "form_factor": "narrow",
+      "label": "Mobile view showing online store"
+    }
+  ]
+}

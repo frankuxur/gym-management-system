@@ -43,7 +43,7 @@ const ClosingMembers = ({ closingMembers, handleDelete }) => {
                                 <i className="iconoir-message icon"></i>
                             </Link>
 
-                            <button onClick={() => handleDelete(member?.uid)} className="member__button">
+                            <button onClick={() => handleDelete(member)} className="member__button">
                                 <i className="iconoir-trash icon"></i>
                             </button>
                         </div>

@@ -39,7 +39,7 @@
       "src": "/screenshots/wide-2.png",
       "sizes": "1920x912",
       "form_factor": "wide",
-      "label": "Desktop view showing membership details"
+      "label": "Desktop view showing member details"
     },
     {
       "src": "/screenshots/wide-3.png",
@@ -63,7 +63,7 @@
       "src": "/screenshots/narrow-2.png",
       "sizes": "402x803",
       "form_factor": "narrow",
-      "label": "Mobile view showing membership details"
+      "label": "Mobile view showing member details"
     },
     {
       "src": "/screenshots/narrow-3.png",

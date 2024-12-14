@@ -28,7 +28,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#242424",
   "background_color": "#E3E3E3",

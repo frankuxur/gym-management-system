@@ -36,12 +36,6 @@
   "background_color": "#E3E3E3",
   "screenshots": [
     {
-      "src": "/screenshots/wide-1.png",
-      "sizes": "1920x912",
-      "form_factor": "wide",
-      "label": "Desktop view showing the home section"
-    },
-    {
       "src": "/screenshots/wide-2.png",
       "sizes": "1920x912",
       "form_factor": "wide",
@@ -66,18 +60,6 @@
       "label": "Desktop view showing annual holiday list"
     },
     {
-      "src": "/screenshots/wide-6.png",
-      "sizes": "1920x912",
-      "form_factor": "wide",
-      "label": "Desktop view showing online store"
-    },
-    {
-      "src": "/screenshots/wide-7.png",
-      "sizes": "1920x912",
-      "form_factor": "wide",
-      "label": "Desktop view showing diet plans"
-    },
-    {
       "src": "/screenshots/narrow-2.png",
       "sizes": "402x803",
       "form_factor": "narrow",
@@ -100,12 +82,6 @@
       "sizes": "402x803",
       "form_factor": "narrow",
       "label": "Mobile view showing annual holiday list"
-    },
-    {
-      "src": "/screenshots/narrow-6.png",
-      "sizes": "402x803",
-      "form_factor": "narrow",
-      "label": "Mobile view showing online store"
     }
   ]
 }

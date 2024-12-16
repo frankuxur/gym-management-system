@@ -30,7 +30,7 @@
 }
 
 .footer__subtitle {
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     opacity: 0.6;
     letter-spacing: 0.02rem;
     display: flex;

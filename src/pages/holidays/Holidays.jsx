@@ -87,7 +87,7 @@ const Holidays = () => {
                                         </button>
 
                                         <button onClick={() => handleDelete(holiday?.id)} className="holiday__button">
-                                            {(deletingHoliday && clickedButton === holiday?.id) ? <Loader color={'new-3'} /> : <i className="iconoir-trash icon"></i>}                                    
+                                            {(deletingHoliday && clickedButton === holiday?.id) ? <Loader color={'text-1'} /> : <i className="iconoir-trash icon"></i>}                                    
                                         </button>
                                     </div>
                                 )}
@@ -98,7 +98,7 @@ const Holidays = () => {
                 </div>
             ))
         ) : (
-            <Loader color={'new-3'} />
+            <Loader color={'text-1'} />
         )}
         
         {showModal && <Modal type={'holidays'} setShowModal={setShowModal} />}

@@ -13,28 +13,19 @@
 /* variables */
 :root {
     /* colors */
-    --bg-1: #202124;
-    --bg-2: #28282C;
-    --bg-3: #1d1d1f;
-    --goshawk-gray: #444444;
-    --text-1: #ffffffde;
-    --text-2: #9aa0a6;
-    --text-3: #ededed;
     --error: #e84f4f;
     --warning-1: #e8c44f;
     --warning-2: #ecc33d;
     --success: #14f070;
-    --white: #FEFEFE;
-    --silver: #CCCCCC;
-    --seasalt: #F6F6F6;
-    --snow: #FBF8FB;
-    --tanzanite-blue: #0f4a6d;
-    --teal: #0eaba8;
 
     /* new colors */
     --new-1: #242424;
     --new-2: #1a1a1a;
     --new-3: #e3e3e3;
+
+    --bg-1: #242424;
+    --bg-2: #1A1A1A;
+    --text-1: #E3E3E3;
 
     /* spacings */
     --xxxs: 0.25rem;
@@ -49,9 +40,9 @@
     --xxxxl: 4.8rem;
 
     /* font sizes */
-    --font-xxs: 0.5rem; /* 8px */
-    --font-xs: 0.625rem; /* 10px */
-    --font-s-xs: 0.75rem; /* 12px */
+    --font-xxxs: 0.5rem; /* 8px */
+    --font-xxs: 0.625rem; /* 10px */
+    --font-xs: 0.75rem; /* 12px */
     --font-s: 0.875rem; /* 14px */
     --font-m: 1rem; /* 16px */
     --font-l: 1.125rem; /* 18px */
@@ -83,8 +74,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
-  /* border: 1px dashed lightcoral; */
 }
 
 html {
@@ -96,10 +85,9 @@ html {
 }
 
 body {
-  font-family: sans-serif;
   font-family: var(--manrope);
-  background: var(--new-1);
-  color: var(--new-3);
+  background: var(--bg-1);
+  color: var(--text-1);
 }
 
 input, button, textarea, select {
@@ -185,41 +173,3 @@ ul {
     --content-width: 100%;
   }
 }
-
-
-
-
-
-/* media query */
-/* @media (max-width: 1200px) {
-
-}
-
-@media (max-width: 1080px) {
-
-}
-
-@media (max-width: 1024px) {
-
-}
-
-@media (max-width: 880px) {
-
-}
-
-@media (max-width: 768px) {
-
-}
-
-@media (max-width: 640px) {
-
-}
-
-@media (max-width: 480px) {
-
-}
-
-@media (max-width:  320px) {
-
-} 
-*/

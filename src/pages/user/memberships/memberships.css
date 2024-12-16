@@ -5,7 +5,7 @@
 }
 
 .membership-card {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     width: 14rem;
     padding: var(--xs);
     padding-bottom: var(--m);
@@ -16,18 +16,18 @@
 }
 
 .membership-card header {
-    background-color: var(--new-3);
+    background-color: var(--text-1);
     border-radius: var(--m);
     cursor: default;
 }
 
 .membership-card:hover header .icon {
     scale: 1.02;
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
 }
 
 .membership-card header .icon {
-    background-color: var(--new-1);
+    background-color: var(--bg-1);
     height: 8rem;
     border-radius: var(--m);
     margin-bottom: -0.2rem;
@@ -42,8 +42,8 @@
 
 .membership-card header div {
     text-align: center;
-    font-size: var(--font-s-xs);
-    color: var(--new-2);
+    font-size: var(--font-xs);
+    color: var(--bg-2);
     font-weight: var(--light);
     text-transform: uppercase;
 }

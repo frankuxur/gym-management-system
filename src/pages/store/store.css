@@ -17,7 +17,7 @@
 }
 
 .supplement {
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     display: flex;
     flex-direction: column;
     gap: var(--xl);
@@ -109,7 +109,7 @@
 }
 
 .product__in-stock {
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     text-transform: uppercase;
     letter-spacing: 0.02rem;
     opacity: 0.9;
@@ -136,7 +136,7 @@
     align-items: center;
     transition: 0.2s;
     cursor: pointer;
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
 }
 
 .product__back-button:hover {

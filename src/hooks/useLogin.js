@@ -7,6 +7,7 @@ import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
+// log a user in & set their info in state and local storage, then navigate to dashboard
 const useLogin = () => {
     const [signInWithEmailAndPassword, , , error] = useSignInWithEmailAndPassword(auth)
     const dispatch = useDispatch()

@@ -13,7 +13,7 @@
 }
 
 .modal__content {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     display: flex;
     flex-direction: column;
     border-radius: var(--s);
@@ -47,23 +47,23 @@
 }
 
 .modal__membership button {
-    background-color: var(--new-3);
+    background-color: var(--text-1);
     border-radius: var(--m);
 }
 
 .modal__membership button:hover .icon {
     scale: 1.04;
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
 }
 
 .modal__membership button.active .icon {
     scale: 1.05;
-    /* background: linear-gradient(to top, var(--new-2), #2c5364, var(--new-3)); */
+    /* background: linear-gradient(to top, var(--bg-2), #2c5364, var(--text-1)); */
     background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
 }
 
 .modal__membership .icon {
-    background-color: var(--new-1);
+    background-color: var(--bg-1);
     width: 6rem;
     aspect-ratio: 1;
     border-radius: var(--m);
@@ -79,8 +79,8 @@
 
 .modal__membership div {
     text-align: center;
-    font-size: var(--font-s-xs);
-    color: var(--new-2);
+    font-size: var(--font-xs);
+    color: var(--bg-2);
     font-weight: var(--light);
 }
 
@@ -120,7 +120,7 @@
 }
 
 .modal__holidays .line h5 {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     padding-inline: var(--xxs);
     z-index: 1;
 }
@@ -173,7 +173,7 @@
 .modal__user h2 {
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     object-fit: cover;
     object-position: center;
     border-radius: var(--s);

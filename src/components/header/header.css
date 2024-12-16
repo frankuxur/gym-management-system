@@ -46,7 +46,7 @@
 .header__user-image {
     width: 2.4rem;
     height: 2.4rem;
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     object-fit: cover;
     object-position: center;
     border-radius: var(--s);
@@ -68,11 +68,11 @@
 
 .header__user-info {
     transform: translateY(4%); 
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     border-radius: var(--s);
     padding: var(--xs);
     margin-top: 0.1rem;
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     border: 0.2rem solid rgba(255 255 255 / 0.1);
     min-width: 12rem;
 }
@@ -98,7 +98,7 @@
 
 .header__user-logout-button {
     width: 100%;
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     padding: var(--xxs);
     display: flex;
     justify-content: center;
@@ -107,7 +107,7 @@
 }
 
 .header__user-logout-button .icon {
-    color: var(--new-2);
+    color: var(--bg-2);
     font-size: var(--font-s);
 }
 
@@ -124,32 +124,6 @@
 
 .header__button:hover {
     background-color: rgba(255 255 255 / 0.1);
-}
-
-/* nav */
-.nav {
-    position: relative;
-}
-
-.nav__items {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: translateY(100%);
-    padding: var(--l);
-    z-index: 1;
-    background-color: var(--bg-2);
-    border-radius: var(--xxs);
-    box-shadow: 0 0 0.8rem 0.2rem rgba(0 0 0 / 0.4);
-    border: 0.01rem solid rgba(255 255 255 / 0.3);
-    font-size: var(--font-s);
-    display: flex;
-    flex-direction: column;
-    gap: var(--xs);
-    font-size: var(--font-l);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.2s;
 }
 
 

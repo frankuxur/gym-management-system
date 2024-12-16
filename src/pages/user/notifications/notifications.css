@@ -23,7 +23,7 @@
 }
 
 .notification-item {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     border-radius: var(--xs);
     display: flex;
     gap: var(--xs);
@@ -49,7 +49,7 @@
 }
 
 .notification-item header p {
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     opacity: 0.6;
 }
 

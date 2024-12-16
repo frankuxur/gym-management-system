@@ -16,7 +16,7 @@ const DeleteModal = ({ member, setShowModal }) => {
 
   return (
     <div className="modal__body">
-      <div className="modal__delete-message">This member's account will be permanently deleted, are you sure?</div>
+      <div className="modal__delete-message">This member's account will be permanently deleted</div>
 
       <div className="modal__user">
         <h2>{name.charAt(0)}</h2>
@@ -32,7 +32,7 @@ const DeleteModal = ({ member, setShowModal }) => {
           cancel
         </button>
         <button onClick={handleDelete} className="modal__button form__button delete" >
-          {loading ? <Loader color={'new-3'} /> : <i className="iconoir-trash icon"></i>}
+          {loading ? <Loader color={'text-1'} /> : <i className="iconoir-trash icon"></i>}
         </button>
       </div>
     </div>

@@ -5,6 +5,7 @@ import toast from "react-hot-toast"
 import { useDispatch } from "react-redux"
 import { removeMember } from "../redux/membersSlice"
  
+// delete a member by id
 const useDeleteMember = () => {
     const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()

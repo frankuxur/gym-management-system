@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import toast from "react-hot-toast"
 import { setReceiptsAction } from "../redux/userSlice"
 
+// fetch all receipts of a member by id
 const useGetMemberReceipts = (id) => {
   const [loading, setLoading] = useState(true)
   const [member, setMember] = useState(true)

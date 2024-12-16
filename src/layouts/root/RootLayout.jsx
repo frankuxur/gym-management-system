@@ -25,8 +25,8 @@ const RootLayout = () => {
           duration: 4000,
           style: {
             borderRadius: 'var(--s)',
-            background: 'var(--new-3)',
-            color: 'var(--new-2)',
+            background: 'var(--text-1)',
+            color: 'var(--bg-2)',
           }
         }}
       />

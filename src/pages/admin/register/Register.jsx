@@ -38,6 +38,7 @@ const Register = () => {
                     id='name'
                     value={name}
                     onChange={e => setName(formatText(e.target.value))}
+                    autoFocus
                 />
             </div>
 

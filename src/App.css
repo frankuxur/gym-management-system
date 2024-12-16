@@ -19,7 +19,7 @@
 }
 
 .icon {
-    color: var(--new-3);
+    color: var(--text-1);
 }
 
 .footer {
@@ -46,12 +46,12 @@
 }
 
 .form__input {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     border-radius: var(--s);
     padding: var(--xs);
     border: 0.2rem solid transparent;
     font-size: var(--font-s);
-    color: var(--new-3);
+    color: var(--text-1);
     width: 20rem;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .form__error-message {
-    font-size: var(--font-xs);
+    font-size: var(--font-xxs);
     opacity: 0.6;
     font-weight: var(--light);
     margin-top: calc(var(--xxxs) * -1);
@@ -73,8 +73,8 @@
     border-radius: var(--xs);
     font-size: var(--font-s);
     font-weight: var(--semi-bold);
-    background-color: var(--new-3);
-    color: var(--new-2);
+    background-color: var(--text-1);
+    color: var(--bg-2);
     align-self: flex-start;
     border: 0.2rem solid transparent;
     transition: 0.2s;

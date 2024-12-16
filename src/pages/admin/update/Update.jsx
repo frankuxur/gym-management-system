@@ -15,13 +15,10 @@ const Update = () => {
   const members = useSelector(state => state.members.members)
   const member = members.find(member => member.uid === id)
   const { updateUserInfo, loading } = useUpdateUserInfo()
-  const inputRef = useRef(null)
 
   // if the member id is invalid, user will be redirected to '/' route in 4s 
   useEffect(() => {
     setName(member?.name || '')
-    // focus on name input when component renders
-    inputRef?.current?.focus()
     
     let timeout
     if (!member) {
@@ -52,7 +49,7 @@ const Update = () => {
 
 
   if (!member) {
-    return <Loader color={'new-3'} />
+    return <Loader color={'text-1'} />
   }
 
   return (
@@ -85,7 +82,7 @@ const Update = () => {
             name='name'
             value={name}
             onChange={e => setName(formatText(e.target.value))}
-            ref={inputRef}
+            autoFocus
           />
         </div>
 

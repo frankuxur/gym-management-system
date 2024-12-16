@@ -26,25 +26,25 @@ const UserLayout = () => {
 
       <ul className="user__tabs">
         <li className="user__tab">
-          <NavLink to='home'>home</NavLink>
+          <NavLink to='home'><i className="iconoir-home icon"></i> home</NavLink>
         </li>
         <li className="user__tab">
-          <NavLink to='notifications'>notifications</NavLink>
+          <NavLink to='notifications'><i className="iconoir-bell icon"></i> notifications</NavLink>
         </li>
         <li className="user__tab">
-          <NavLink to={`receipts/${user?.uid}`}>receipts</NavLink>
+          <NavLink to={`receipts/${user?.uid}`}><span>₹</span> receipts</NavLink>
         </li>
         <li className="user__tab">
-          <NavLink to='memberships'>memberships</NavLink>
+          <NavLink to='memberships'><i className="iconoir-star icon"></i> memberships</NavLink>
         </li>
         <li className="user__tab">
-          <NavLink to='holidays'>holidays</NavLink>
+          <NavLink to='holidays'><i className="iconoir-coffee-cup icon"></i> holidays</NavLink>
         </li>
-        <li className="admin__tab">
-          <NavLink to='store'>store</NavLink>
+        <li className="user__tab">
+          <NavLink to='store'><i className="iconoir-shop-window icon"></i> store</NavLink>
         </li>
-        <li className="admin__tab">
-          <NavLink to='diets'>diets</NavLink>
+        <li className="user__tab">
+          <NavLink to='diets'><i className="iconoir-leaf icon"></i> diets</NavLink>
         </li>
       </ul>
 

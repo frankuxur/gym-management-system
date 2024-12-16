@@ -23,7 +23,7 @@
 }
 
 .receipt {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     height: 16rem;
     width: 26rem;
     padding: var(--xs);
@@ -94,7 +94,9 @@
 }
 
 .receipt__logo span {
-    font-size: var(--font-xs);
+    font-size: var(--font-xxs);
+    text-transform: uppercase;
+    opacity: 0.3;
 }
 
 .receipt__name,
@@ -105,7 +107,7 @@
 .receipt__date,
 .receipt__email,
 .receipt__address {
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
 }
 
 .receipt__date {
@@ -114,7 +116,7 @@
 }
 
 .receipt__date span:first-child {
-    font-size: var(--font-xs);
+    font-size: var(--font-xxs);
     opacity: 0.6;
 }
 

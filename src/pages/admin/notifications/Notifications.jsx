@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import './notifications.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import Loader from '../../../components/loader/Loader'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useSendNotification from '../../../hooks/useSendNotification'
 
 const Notifications = () => {
@@ -15,12 +15,9 @@ const Notifications = () => {
   const member = members.find(member => member.uid === id)
   const navigate = useNavigate()
   const { loading, sendNotification } = useSendNotification()
-  const inputRef = useRef(null)
 
   // if the member id is invalid, user will be redirected to '/' route in 4s 
   useEffect(() => {
-    inputRef?.current?.focus()
-
     let timeout
     if (!member) {
       timeout = setTimeout(() => {
@@ -40,7 +37,7 @@ const Notifications = () => {
 
   
   if (!member) {
-    return <Loader color={'new-3'} />
+    return <Loader color={'text-1'} />
   }
   
   return (
@@ -61,7 +58,7 @@ const Notifications = () => {
             name='title' 
             value={title}
             onChange={e => setTitle(e.target.value)}
-            ref={inputRef}
+            autoFocus
           />
         </div>
 

@@ -22,7 +22,7 @@ const Receipts = () => {
             <span>{user.role === 'member' ? user?.name : member?.name}</span>
         </h3>
 
-        {loading && <Loader color='new-3' />}
+        {loading && <Loader color='text-1' />}
 
         {!loading && member && !!receipts.length && (
             <div className="receipts__list">

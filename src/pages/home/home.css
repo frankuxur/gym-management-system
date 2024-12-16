@@ -33,7 +33,7 @@
 }
 
 .home__subtitle {
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     margin-bottom: var(--l);
     font-weight: var(--lighter);
     letter-spacing: 0.1rem;

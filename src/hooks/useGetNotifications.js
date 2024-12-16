@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import toast from "react-hot-toast"
 import { setNotificationsAction } from "../redux/userSlice"
 
+// get all notification received by a member by id
 const useGetNotifications = () => {
   const [loading, setLoading] = useState(true)
   const { uid } = useSelector(state => state.user.user)

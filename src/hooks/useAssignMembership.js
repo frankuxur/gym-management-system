@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux"
 import { assignMembershipAction } from "../redux/membersSlice"
 import useSendNotification from "./useSendNotification"
 
+// assign membership to a member: create a new receipt, update user info & send notification
 const useAssignMembership = () => {
     const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()

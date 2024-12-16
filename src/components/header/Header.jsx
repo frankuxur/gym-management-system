@@ -33,7 +33,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <nav className="nav">
+            {/* <nav className="nav">
               <ul className="nav__items">
                 <li className='nav__item'>
                   <a href="" className='nav__link'>contact</a>
@@ -47,7 +47,7 @@ const Header = () => {
                   <a href="" className='nav__link'>logout</a>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
 
             {!!user && (
               <>

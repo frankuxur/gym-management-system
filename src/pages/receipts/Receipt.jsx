@@ -40,7 +40,7 @@ const Receipt = ({ receipt: { amount, createdAt, expiryDate, membership }, email
 
         <footer className="receipt__footer">
             <div className='receipt__logo'>
-                <h3>confit.</h3>
+                <h3>fitcon.</h3>
                 <span>gym & fitness</span>
             </div>
                 

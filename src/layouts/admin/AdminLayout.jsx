@@ -26,19 +26,19 @@ const AdminLayout = () => {
 
       <ul className="admin__tabs">
         <li className="admin__tab">
-          <NavLink to='members'>members</NavLink>
+          <NavLink to='members'><i className="iconoir-group icon"></i> members</NavLink>
         </li>
         <li className="admin__tab">
-          <NavLink to='register'>register</NavLink>
+          <NavLink to='register'><i className="iconoir-user-plus icon"></i> register</NavLink>
         </li>
         <li className="admin__tab">
-          <NavLink to='holidays'>holidays</NavLink>
+          <NavLink to='holidays'><i className="iconoir-coffee-cup icon"></i> holidays</NavLink>
         </li>
         <li className="admin__tab">
-          <NavLink to='store'>store</NavLink>
+          <NavLink to='store'><i className="iconoir-shop-window icon"></i> store</NavLink>
         </li>
         <li className="admin__tab">
-          <NavLink to='diets'>diets</NavLink>
+          <NavLink to='diets'><i className="iconoir-leaf icon"></i> diets</NavLink>
         </li>
       </ul>
 

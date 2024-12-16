@@ -21,7 +21,7 @@
     display: flex;
     align-items: center;
     gap: var(--xs);
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     padding: var(--xs);
     border-radius: var(--xs);
 }
@@ -37,16 +37,19 @@
 }
 
 .admin__tab a {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     padding: var(--xs);
     border-radius: var(--xs);
     font-size: var(--font-s);
     font-weight: var(--semi-bold);
     border: 0.2rem solid transparent;
     transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: var(--xxs);
 }
 
 .admin__tab a:hover,
 .admin__tab .active {
-    border-color: rgba(255 255 255 / 0.1);
+    border-color: rgba(255 255 255 / 0.12);
 }

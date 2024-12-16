@@ -3,6 +3,7 @@ import { addDoc, arrayUnion, collection, doc, updateDoc } from 'firebase/firesto
 import toast from 'react-hot-toast'
 import { useState } from 'react'
 
+// send notification to a member by id
 const useSendNotification = () => {
     const [loading, setLoading] = useState(false)
 

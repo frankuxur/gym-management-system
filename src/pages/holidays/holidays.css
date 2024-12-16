@@ -63,7 +63,7 @@
 .holidays__button {
     align-self: center;
     width: 4rem;
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     padding: var(--xs);
     border-radius: var(--xs);
     font-size: var(--font-s);

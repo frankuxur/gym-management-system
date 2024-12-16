@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import divideMembers from "../helper/divideMembers"
 
+// retrieves gym members from redux state, filters them using search query & groups them by activeMembers, inactiveMembers, closingMembers
 const useGetFilteredMembers = () => {
     const [searchQuery, setSearchQuery] = useState('')
     const allMembers = useSelector(state => state.members.members)

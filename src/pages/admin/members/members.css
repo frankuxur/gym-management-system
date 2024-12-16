@@ -5,7 +5,7 @@
 }
 
 .members__search {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     border-radius: var(--xs);
     display: flex;
     align-items: center;
@@ -15,14 +15,14 @@
 
 .members__search .icon {
     padding: var(--xxs);
-    border-right: 0.01rem solid var(--new-3);
+    border-right: 0.01rem solid var(--text-1);
     opacity: 0.4;
 }
 
 .members__input {
     padding: var(--xxs);
     flex: 1;
-    color: var(--new-3);
+    color: var(--text-1);
     transition: 0.2s;
     border-radius: var(--xs);
 }
@@ -32,7 +32,7 @@
 }
 
 .members__group {
-    background-color: var(--new-2);
+    background-color: var(--bg-2);
     border-radius: var(--s);
     padding: var(--xs);
     display: flex;
@@ -58,14 +58,14 @@
 }
 
 .member__email {
-    font-size: var(--font-xs);
+    font-size: var(--font-xxs);
     opacity: 0.4;
     letter-spacing: 0.02rem;
     font-weight: var(--light);
 }
 
 .member__date {
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     display: flex;
     align-items: center;
     gap: var(--xxs);

@@ -6,6 +6,7 @@ import { firestore } from "../firebase/firebase"
 import { updateMemberName } from "../redux/membersSlice"
 import { useNavigate } from "react-router-dom"
 
+// update a member's name
 const useUpdateUserInfo = () => {
     const [loading, setLoading] = useState(false)
     const role = useSelector(state => state.user.user.role)

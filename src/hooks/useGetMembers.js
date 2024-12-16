@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setMembers } from '../redux/membersSlice'
 import toast from "react-hot-toast"
 
+// fetch list of all members & update their info if expiryDate has passed
 const useGetMembers = () => {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch() 

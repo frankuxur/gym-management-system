@@ -13,7 +13,7 @@ const Home = () => {
   if (user?.role === 'member') {
     return <Navigate to={'dashboard/user'} replace />
   } else if (user?.role === 'admin') {
-    return <Navigate to={'dashboard/admin'} repla ce />
+    return <Navigate to={'dashboard/admin'} replace />
   }
 
   return (

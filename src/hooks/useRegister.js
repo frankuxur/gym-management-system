@@ -8,7 +8,7 @@ import useSendNotification from './useSendNotification'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-// custom hook to register a new user
+// custom hook to register a new user & send them a notification
 const useRegister = () => {
     const [createUserWithEmailAndPassword, , , error] = useCreateUserWithEmailAndPassword(auth)
     const { sendNotification } = useSendNotification()

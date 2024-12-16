@@ -33,7 +33,7 @@
     flex-direction: column;
     gap: var(--l);
     list-style: decimal-leading-zero;
-    font-size: var(--font-s-xs);
+    font-size: var(--font-xs);
     padding-left: var(--l);
 }
 
@@ -97,7 +97,7 @@
         transform: translateX(-104%);
         padding: var(--s);
         z-index: 1;
-        background-color: var(--new-2);
+        background-color: var(--bg-2);
         border-radius: var(--xs);
     }
     
@@ -127,7 +127,6 @@
         align-items: center;
         transition: 0.2s;
         cursor: pointer;
-        background-color: var(--new-2);
         background-color: rgba(255 255 255 / 0.04);
     }
     

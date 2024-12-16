@@ -20,7 +20,7 @@ const Notifications = () => {
         <span>{user?.name}</span>
       </h3>
 
-      {loading && <Loader color='new-3' />}
+      {loading && <Loader color='text-1' />}
 
       <ul className="notification-list">
         {!!notifications.length && !loading && (

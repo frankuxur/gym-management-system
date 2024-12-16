@@ -1,5 +1,5 @@
 import './members.css'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import Modal from '../../../components/modal/Modal'
 import Loader from '../../../components/loader/Loader'
 import formatText from '../../../utils/formatText'
@@ -20,7 +20,6 @@ const Members = () => {
   const { loading } = useGetMembers()
   const { activeMembers, inactiveMembers, closingMembers, searchQuery, setSearchQuery } = useGetFilteredMembers()
   const [selectedMember, setSelectedMember] = useState({})
-  const inputRef = useRef(null)
      
   // open the modal used for membership assignment    
   const assignMembership = (member) => {
@@ -33,11 +32,6 @@ const Members = () => {
     setSelectedMember(member)
     setShowDeleteModal(true)
   }
-
-  // focus on input when componenet renders   
-  useEffect(() => {
-    inputRef.current.focus()
-  }, [])
 
   // gsap stagger
   useGSAP(() => {
@@ -65,7 +59,7 @@ const Members = () => {
           placeholder='Search for a member'
           value={searchQuery}
           onChange={e => setSearchQuery(formatText(e.target.value))}
-          ref={inputRef}
+          autoFocus
         />
       </div>
 
@@ -76,7 +70,7 @@ const Members = () => {
 
       <InactiveMembers inactiveMembers={inactiveMembers} assignMembership={assignMembership} handleDelete={handleDelete} />
 
-      {loading && <Loader color='new-3' />}
+      {loading && <Loader color='text-1' />}
 
       {/* render this if there's text in the search query, and there are members, but no members' name match the search query */}
       {!!searchQuery.trim().length && !loading && !activeMembers.length && !inactiveMembers.length && !closingMembers.length && (

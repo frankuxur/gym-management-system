@@ -5,7 +5,7 @@
 
 The app facilitates the convenient storage and accessibility of gym receipts online. The admin can manage memberships, track member status, register new members, update and delete accounts, send personalised messages, and publish holidays. Members can access their current membership status and receipt history, as well as an online supplement store and details of their prescribed diet regimen.
 
-#### 🔗 Click the below image to watch a quick demo
+#### 🔗 Click the image below to watch a quick demo
 
 [![Watch the video](https://i.vimeocdn.com/video/1962071931-deaad36775e988068233ee28090b0a5c03ce31514367cf83c9a008968243b3af-d?mw=800&mh=451&q=70)](https://vimeo.com/1039651743?share=copy#t=0)
 
@@ -112,6 +112,3 @@ The same applies to the diets section; the diets data also comes from a JSON fil
 #### 3. Personal Trainer
 
 A feature to assign personal trainers to members throughout their membership period.
-
-<br>
-<br>

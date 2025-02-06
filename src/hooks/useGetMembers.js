@@ -34,7 +34,8 @@ const useGetMembers = () => {
           const memberData = docSnapshot.data()
 
           // check if expiryDate has passed
-          if (memberData.expiryDate < currentDate) {
+          if (memberData.expiryDate && memberData.expiryDate < currentDate) {
+          
             const memberRef = doc(firestore, "users", docSnapshot.id)
             // set expiryDate & currentMembership to null for this member
             batch.update(memberRef, {
@@ -51,7 +52,7 @@ const useGetMembers = () => {
         })
 
         // commit batch updates
-        if (!batch._mutations.length === 0) {
+        if (batch._mutations.length !== 0) {
           await batch.commit()
         }
 
